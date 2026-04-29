@@ -9,6 +9,7 @@
  */
 
 import { useNavigate } from 'react-router-dom'
+import { t } from '../i18n'
 import { 
   ChevronRight as ChevronRightIcon,
   FileText as FileTextIcon,
@@ -122,7 +123,7 @@ export default function AndroidView({ theme, toggleTheme, onFileSelect }: Androi
             <div className="flex items-center justify-between px-2 mb-3">
                <div className="flex items-center gap-2">
                   <ClipboardList size={12} className="text-gray-400" />
-                  <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 leading-none">History Clipboard</h3>
+                  <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400 leading-none">{t('android.historyClipboard', 'en')}</h3>
                </div>
                <button onClick={() => navigate('/android-history')} className="text-[9px] font-black uppercase text-rose-500 tracking-wider">View All</button>
             </div>
@@ -155,7 +156,7 @@ export default function AndroidView({ theme, toggleTheme, onFileSelect }: Androi
         {/* Static Bento Grid */}
         <section>
            <div className="px-2 mb-3 flex items-center justify-between">
-              <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">Core Engines</h3>
+              <h3 className="text-[9px] font-black uppercase tracking-[0.2em] text-gray-400">{t('android.coreEngines', 'en')}</h3>
            </div>
            
            <div className="grid grid-cols-2 gap-3">
@@ -200,7 +201,7 @@ export default function AndroidView({ theme, toggleTheme, onFileSelect }: Androi
 
         {/* Minimal Footer */}
         <div className="flex flex-col items-center gap-2 py-8 opacity-20">
-           <p className="text-[8px] font-black uppercase tracking-[0.4em] dark:text-white text-center">PaperKnife v1.0.9</p>
+           <p className="text-[8px] font-black uppercase tracking-[0.4em] dark:text-white text-center">{t('android.version', 'en')}</p>
         </div>
 
       </main>
