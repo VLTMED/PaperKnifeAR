@@ -106,4 +106,7 @@ export const en = {
   "shared.size": `Size`,
   "shared.name": `Name`,
   "shared.noResults": `No results found`,
+  "nav.home": `Home`,
+  "nav.tools": `Tools`,
+  "nav.history": `History`,
 } as const;

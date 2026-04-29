@@ -106,4 +106,7 @@ export const ar = {
   "shared.size": `الحجم`,
   "shared.name": `الاسم`,
   "shared.noResults": `لا توجد نتائج`,
+  "nav.home": `الرئيسية`,
+  "nav.tools": `الأدوات`,
+  "nav.history": `السجل`,
 } as const;
