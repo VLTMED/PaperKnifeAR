@@ -269,7 +269,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
             className={`flex flex-col items-center gap-1.5 flex-1 transition-all ${location.pathname === '/' ? 'text-rose-500' : 'text-gray-400 dark:text-zinc-600'}`}
           >
             <HomeIcon size={24} strokeWidth={location.pathname === '/' ? 2.5 : 2} />
-            <span className="text-[10px] font-bold">Home</span>
+            <span className="text-[10px] font-bold">الرئيسية</span>
           </button>
 
           <button 
@@ -277,7 +277,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
             className={`flex flex-col items-center gap-1.5 flex-1 transition-all ${location.pathname === '/android-tools' ? 'text-rose-500' : 'text-gray-400 dark:text-zinc-600'}`}
           >
             <LayoutGridIcon size={24} strokeWidth={location.pathname === '/android-tools' ? 2.5 : 2} />
-            <span className="text-[10px] font-bold">Tools</span>
+            <span className="text-[10px] font-bold">الأدوات</span>
           </button>
 
           {/* Floating Action Button - Lifted */}
@@ -305,7 +305,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
             className={`flex flex-col items-center gap-1.5 flex-1 transition-all ${location.pathname === '/android-history' ? 'text-rose-500' : 'text-gray-400 dark:text-zinc-600'}`}
           >
             <HistoryIcon size={24} strokeWidth={location.pathname === '/android-history' ? 2.5 : 2} />
-            <span className="text-[10px] font-bold">History</span>
+            <span className="text-[10px] font-bold">السجل</span>
           </button>
 
           <Link 
@@ -313,7 +313,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
             className={`flex flex-col items-center gap-1.5 flex-1 transition-all no-underline ${location.pathname.includes('settings') ? 'text-rose-500' : 'text-gray-400 dark:text-zinc-600'}`}
           >
             <SettingsIcon size={24} strokeWidth={location.pathname.includes('settings') ? 2.5 : 2} />
-            <span className="text-[10px] font-bold">Settings</span>
+            <span className="text-[10px] font-bold">الإعدادات</span>
           </Link>
         </nav>
       )}
