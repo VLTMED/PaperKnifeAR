@@ -21,7 +21,6 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
   useEffect(() => {
     hapticSuccess()
     
-    // Auto-Download Logic
     const shouldAutoDownload = localStorage.getItem('autoDownload') === 'true'
     if (shouldAutoDownload) {
       const triggerAutoDownload = async () => {
@@ -31,7 +30,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
           const buffer = await blob.arrayBuffer()
           const mimeType = fileName.endsWith('.zip') ? 'application/zip' : 'application/pdf'
           await downloadFile(new Uint8Array(buffer), fileName, mimeType)
-          toast.success(`Auto-saved as ${fileName}`)
+          toast.success(`تم الحفظ التلقائي: ${fileName}`)
         } catch (e) {
           console.error('Auto-download failed:', e)
         }
@@ -43,38 +42,36 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
   const handleDownload = async (e: React.MouseEvent) => {
     e.preventDefault()
     try {
-      toast.loading(`Saving ${fileName}...`, { id: 'save-action' })
+      toast.loading(`جارٍ الحفظ...`, { id: 'save-action' })
       const response = await fetch(downloadUrl)
       const blob = await response.blob()
       const buffer = await blob.arrayBuffer()
       const mimeType = fileName.endsWith('.zip') ? 'application/zip' : 'application/pdf'
-      
       await downloadFile(new Uint8Array(buffer), fileName, mimeType)
-      toast.success(`Saved to Documents as ${fileName}`, { id: 'save-action' })
+      toast.success(`تم الحفظ: ${fileName}`, { id: 'save-action' })
     } catch (err) {
-      toast.error('Failed to save file', { id: 'save-action' })
+      toast.error('فشل حفظ الملف', { id: 'save-action' })
     }
   }
 
   const handleShare = async (e: React.MouseEvent) => {
     e.preventDefault()
     try {
-      toast.loading('Preparing to share...', { id: 'share-action' })
+      toast.loading('جارٍ التحضير للمشاركة...', { id: 'share-action' })
       const response = await fetch(downloadUrl)
       const blob = await response.blob()
       const buffer = await blob.arrayBuffer()
       const mimeType = fileName.endsWith('.zip') ? 'application/zip' : 'application/pdf'
-      
       await shareFile(new Uint8Array(buffer), fileName, mimeType)
       toast.dismiss('share-action')
     } catch (err) {
-      toast.error('Failed to share file', { id: 'share-action' })
+      toast.error('فشل مشاركة الملف', { id: 'share-action' })
     }
   }
 
   const handlePreview = async () => {
     try {
-      toast.loading('Loading preview...', { id: 'preview-load' })
+      toast.loading('جارٍ تحميل المعاينة...', { id: 'preview-load' })
       const response = await fetch(downloadUrl)
       const blob = await response.blob()
       const mimeType = fileName.endsWith('.zip') ? 'application/zip' : 'application/pdf'
@@ -82,7 +79,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
       setInternalPreviewFile(file)
       toast.dismiss('preview-load')
     } catch (e) {
-      toast.error('Failed to open preview')
+      toast.error('فشل فتح المعاينة')
     }
   }
 
@@ -95,7 +92,6 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
           onProcess={() => {
             const file = internalPreviewFile;
             setInternalPreviewFile(null);
-            // Handoff to global Quick Drop selector after unmounting internal preview
             setTimeout(() => {
               window.dispatchEvent(new CustomEvent('open-quick-drop', { 
                 detail: { file } 
@@ -116,7 +112,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
               onClick={handlePreview}
               className="flex-1 bg-white dark:bg-zinc-900 text-gray-900 dark:text-white border border-gray-200 dark:border-zinc-800 p-4 rounded-2xl md:rounded-3xl shadow-sm font-black text-sm md:text-xl tracking-tight transition-all hover:bg-gray-50 active:scale-95 flex items-center justify-center gap-2"
             >
-              <Eye size={20} /> Preview
+              <Eye size={20} /> معاينة
             </button>
           )}
           
@@ -124,7 +120,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
             onClick={handleShare}
             className="flex-1 bg-rose-50 dark:bg-rose-900/20 text-rose-500 border border-rose-100 dark:border-rose-900/30 p-4 rounded-2xl md:rounded-3xl shadow-sm font-black text-sm md:text-xl tracking-tight transition-all active:scale-95 flex items-center justify-center gap-2"
           >
-            <Share2 size={20} /> Share
+            <Share2 size={20} /> مشاركة
           </button>
         </div>
         
@@ -132,7 +128,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
           onClick={handleDownload}
           className="w-full bg-gray-900 dark:bg-white text-white dark:text-black p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl font-black text-lg md:text-xl tracking-tight transition-all hover:scale-[1.01] active:scale-95 flex items-center justify-center gap-3"
         >
-          <Download size={24} /> {isNative ? 'Save to Device' : 'Download'}
+          <Download size={24} /> {isNative ? 'حفظ على الجهاز' : 'تحميل'}
         </button>
       </div>
 
@@ -140,7 +136,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
         onClick={onStartOver}
         className="w-full mt-6 py-4 bg-gray-50 dark:bg-zinc-900 text-gray-400 hover:text-rose-500 dark:hover:text-rose-500 rounded-2xl border border-gray-100 dark:border-white/5 font-black text-[10px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-sm"
       >
-        <RotateCcw size={14} /> Start New Session
+        <RotateCcw size={14} /> جلسة جديدة
       </button>
     </div>
   )

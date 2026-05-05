@@ -234,12 +234,12 @@ export default function CompressTool() {
       disabled={isProcessing || files.filter(f => !f.isLocked).length === 0}
       className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-3 shadow-lg shadow-rose-500/20 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl`}
     >
-      {isProcessing ? <><Loader2 className="animate-spin" /> {globalProgress}%</> : <>Compress {files.length > 1 ? `${files.length} Files` : 'PDF'} <ArrowRight size={18} /></>}
+      {isProcessing ? <><Loader2 className="animate-spin" /> {globalProgress}%</> : <>ضغط {files.length > 1 ? `${files.length} ملفات` : 'PDF'} <ArrowRight size={18} /></>}
     </button>
   )
 
   return (
-    <NativeToolLayout title="Compress PDF" description="Reduce file size while maintaining quality. Everything stays on your device." actions={files.length > 0 && !showSuccess && <ActionButton />}>
+    <NativeToolLayout title="ضغط PDF" description="تقليص حجم الملف مع الحفاظ على الجودة. كل شيء يبقى على جهازك." actions={files.length > 0 && !showSuccess && <ActionButton />}>
       <input type="file" multiple accept=".pdf" className="hidden" ref={fileInputRef} onChange={(e) => e.target.files && handleFiles(e.target.files)} />
       
       {files.length === 0 ? (
@@ -248,8 +248,8 @@ export default function CompressTool() {
           className="w-full border-4 border-dashed border-gray-100 dark:border-zinc-900 rounded-[2.5rem] p-12 text-center hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all cursor-pointer group"
         >
           <div className="w-20 h-20 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-inner"><Zap size={32} /></div>
-          <h3 className="text-xl font-bold dark:text-white mb-2">Select PDFs</h3>
-          <p className="text-sm text-gray-400 font-medium">Tap to start batch compression</p>
+          <h3 className="text-xl font-bold dark:text-white mb-2">اختر ملفات PDF</h3>
+          <p className="text-sm text-gray-400 font-medium">اضغط لبدء الضغط</p>
         </button>
       ) : !showSuccess ? (
         <div className="space-y-6 animate-in fade-in duration-500">
@@ -263,7 +263,7 @@ export default function CompressTool() {
                   <p className="text-xs font-black truncate dark:text-white">{f.file.name}</p>
                   {f.isLocked ? (
                     <div className="flex gap-1 mt-1">
-                       <input type="password" placeholder="Locked..." className="flex-1 bg-gray-50 dark:bg-black text-[10px] p-1.5 rounded-lg outline-none w-full border border-gray-100 dark:border-zinc-800 focus:border-rose-500" onKeyDown={(e) => { if(e.key === 'Enter') handleUnlock(f.id, e.currentTarget.value) }} />
+                       <input type="password" placeholder="محمي..." className="flex-1 bg-gray-50 dark:bg-black text-[10px] p-1.5 rounded-lg outline-none w-full border border-gray-100 dark:border-zinc-800 focus:border-rose-500" onKeyDown={(e) => { if(e.key === 'Enter') handleUnlock(f.id, e.currentTarget.value) }} />
                     </div>
                   ) : <p className="text-[10px] text-gray-400 font-bold uppercase tracking-tighter">{(f.file.size / (1024*1024)).toFixed(2)} MB • {f.pageCount} Pages</p>}
                 </div>
@@ -271,17 +271,17 @@ export default function CompressTool() {
               </div>
             ))}
             <button onClick={() => fileInputRef.current?.click()} className="border-2 border-dashed border-gray-100 dark:border-zinc-800 rounded-[1.5rem] p-4 text-gray-400 flex flex-col items-center justify-center gap-1 hover:border-rose-500 hover:text-rose-500 transition-all">
-              <Plus size={20} /><span className="text-[10px] font-black uppercase tracking-widest">Add More</span>
+              <Plus size={20} /><span className="text-[10px] font-black uppercase tracking-widest">إضافة المزيد</span>
             </button>
           </div>
 
           <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm">
-            <h4 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-widest px-1">Compression Strategy</h4>
+            <h4 className="text-[10px] font-black uppercase text-gray-400 mb-6 tracking-widest px-1">استراتيجية الضغط</h4>
             <div className="grid grid-cols-3 gap-3">
               {[
-                { id: 'high', label: 'High Quality', desc: '100% Clarity' },
-                { id: 'medium', label: 'Standard', desc: 'Recommended' },
-                { id: 'low', label: 'Smallest', desc: 'Max Save' }
+                { id: 'high', label: 'جودة عالية', desc: '100% وضوح' },
+                { id: 'medium', label: 'قياسي', desc: 'موصى به' },
+                { id: 'low', label: 'الأصغر', desc: 'أقصى توفير' }
               ].map((lvl) => (
                 <button key={lvl.id} onClick={() => setQuality(lvl.id as CompressionQuality)} className={`p-4 rounded-2xl border-2 transition-all flex flex-col items-center gap-1 ${quality === lvl.id ? 'border-rose-500 bg-rose-50/50 dark:bg-rose-900/10' : 'border-gray-100 dark:border-white/5'}`}>
                   <span className={`font-black uppercase text-[9px] text-center leading-tight ${quality === lvl.id ? 'text-rose-500' : 'text-gray-400'}`}>{lvl.label}</span>
@@ -295,28 +295,28 @@ export default function CompressTool() {
                  <div className="w-8 h-8 rounded-full bg-rose-500/10 text-rose-500 flex items-center justify-center">
                    <Zap size={16} />
                  </div>
-                 <h5 className="text-xs font-black uppercase tracking-widest dark:text-white">Strategy Details</h5>
+                 <h5 className="text-xs font-black uppercase tracking-widest dark:text-white">تفاصيل الاستراتيجية</h5>
                </div>
                <p className="text-xs text-gray-500 dark:text-zinc-400 leading-relaxed">
                  {quality === 'high' && (
                    <>
-                     <strong>High Quality:</strong> Retains maximum text clarity and image resolution. 
-                     Best for official documents and high-fidelity reports. 
-                     Expected reduction: <span className="text-rose-500 font-bold">10-30%</span>.
+                     <strong>جودة عالية:</strong> يحافظ على أقصى وضوح للنص ودقة الصور. 
+                     الأفضل للوثائق الرسمية والتقارير عالية الجودة. 
+                     التقليص المتوقع: <span className="text-rose-500 font-bold">10-30%</span>.
                    </>
                  )}
                  {quality === 'medium' && (
                    <>
-                     <strong>Standard:</strong> Balanced optimization for everyday sharing and email attachments. 
-                     The perfect middle ground for most users. 
-                     Expected reduction: <span className="text-rose-500 font-bold">40-60%</span>.
+                     <strong>قياسي:</strong> تحسين متوازن للمشاركة اليومية ومرفقات البريد. 
+                     الخيار المثالي لمعظم المستخدمين. 
+                     التقليص المتوقع: <span className="text-rose-500 font-bold">40-60%</span>.
                    </>
                  )}
                  {quality === 'low' && (
                    <>
-                     <strong>Smallest Size:</strong> Aggressive downsampling for the lowest possible file size. 
-                     Ideal for quick mobile viewing or meeting strict upload limits. 
-                     Expected reduction: <span className="text-rose-500 font-bold">70-90%</span>.
+                     <strong>الحجم الأصغر:</strong> ضغط مكثف للحصول على أصغر حجم ممكن. 
+                     مثالي للعرض السريع أو تلبية حدود الرفع الصارمة. 
+                     التقليص المتوقع: <span className="text-rose-500 font-bold">70-90%</span>.
                    </>
                  )}
                </p>
@@ -327,7 +327,7 @@ export default function CompressTool() {
                 <div className="w-full bg-gray-100 dark:bg-zinc-800 h-2 rounded-full overflow-hidden shadow-inner">
                    <div className="bg-rose-500 h-full transition-all" style={{ width: `${globalProgress}%` }} />
                 </div>
-                <p className="text-[10px] text-center font-black uppercase text-gray-400 tracking-widest animate-pulse">Rasterizing Document...</p>
+                <p className="text-[10px] text-center font-black uppercase text-gray-400 tracking-widest animate-pulse">جارٍ معالجة المستند...</p>
               </div>
             )}
           </div>
@@ -337,8 +337,8 @@ export default function CompressTool() {
           {objectUrl && files.length > 1 && (
             <button onClick={handleDownloadBatch} className="block w-full bg-zinc-900 dark:bg-white text-white dark:text-black p-10 rounded-[2.5rem] text-center shadow-2xl transition-all group active:scale-[0.98]">
               <div className="w-16 h-16 bg-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg"><Download className="text-white" size={32} /></div>
-              <h3 className="text-2xl font-black tracking-tight mb-1">{isNative ? 'Save ZIP Archive' : 'Download ZIP Archive'}</h3>
-              <p className="text-xs font-bold opacity-60 uppercase tracking-widest">{files.length} Optimized PDFs</p>
+              <h3 className="text-2xl font-black tracking-tight mb-1">{isNative ? 'حفظ أرشيف ZIP' : 'تنزيل أرشيف ZIP'}</h3>
+              <p className="text-xs font-bold opacity-60 uppercase tracking-widest">{files.length} ملفات محسّنة</p>
             </button>
           )}
           {objectUrl && files.length === 1 && (

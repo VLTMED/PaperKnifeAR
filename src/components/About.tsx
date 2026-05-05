@@ -174,7 +174,7 @@ const AboutWeb = () => {
 const AboutAPK = () => {
   const navigate = useNavigate()
   return (
-    <NativeToolLayout title="Protocol" description="System Internals" actions={null}>
+    <NativeToolLayout title="البروتوكول" description="داخليات النظام" actions={null}>
       <div className="px-4 pb-32 animate-in fade-in slide-in-from-bottom-4 duration-700 space-y-4">
         
         {/* 1. App Identity */}
@@ -183,7 +183,7 @@ const AboutAPK = () => {
             <PaperKnifeLogo size={40} iconColor="#F43F5E" partColor="currentColor" />
           </div>
           <h2 className="text-2xl font-black tracking-tighter dark:text-white leading-none mb-1">PaperKnife</h2>
-          <p className="text-[9px] font-black uppercase tracking-widest text-rose-500">v1.0.9 Stable • Absolute Privacy</p>
+          <p className="text-[9px] font-black uppercase tracking-widest text-rose-500">v1.0.9 مستقر • خصوصية مطلقة</p>
         </div>
 
         {/* 2. Fuel the Engine (Prominent Support - MOVED TO TOP) */}
@@ -196,17 +196,17 @@ const AboutAPK = () => {
                  <div className="p-2 bg-white/20 rounded-xl backdrop-blur-md">
                     <HeartIcon size={20} fill="currentColor" />
                  </div>
-                 <h3 className="text-lg font-black uppercase tracking-tight">Fuel the Engine</h3>
+                 <h3 className="text-lg font-black uppercase tracking-tight">ادعم المشروع</h3>
               </div>
               <p className="text-sm font-medium text-rose-100 leading-relaxed mb-6">
-                 We are 100% self-funded. Your support ensures PaperKnife stays free and open for everyone.
+                 ممول ذاتياً 100%. دعمك يضمن استمرار PaperKnife مجانياً للجميع.
               </p>
               <div className="grid grid-cols-2 gap-3">
                  <a href="https://github.com/sponsors/potatameister" target="_blank" className="flex items-center justify-center gap-2 py-3 bg-white text-rose-600 rounded-xl font-black uppercase text-[9px] tracking-widest shadow-sm active:scale-95 transition-transform">
-                    Sponsor
+                    داعم
                  </a>
                  <button onClick={() => navigate('/thanks')} className="flex items-center justify-center gap-2 py-3 bg-rose-600 text-white border border-rose-400/50 rounded-xl font-black uppercase text-[9px] tracking-widest active:scale-95 transition-transform">
-                    Hall of Fame
+                    قاعة المجد
                  </button>
               </div>
            </div>
@@ -215,28 +215,28 @@ const AboutAPK = () => {
         {/* 3. Explainer Protocol (The "Everything") */}
         <div className="bg-white dark:bg-zinc-900 rounded-[2rem] p-2 border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
            <div className="p-4 border-b border-gray-50 dark:border-white/5">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">System Internal Specification</h3>
+              <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">المواصفات الداخلية للنظام</h3>
            </div>
            
            <div className="divide-y divide-gray-50 dark:divide-white/5 px-2">
-              <SpecItem title="How it Works" icon={CpuIcon}>
-                Every action you perform—merging, splitting, or encrypting—happens locally on your device's CPU. PaperKnife uses an internal local engine powered by <span className="text-rose-500 font-bold">pdf-lib</span> and <span className="text-rose-500 font-bold">WebAssembly</span>. No data ever leaves your hardware.
+              <SpecItem title="كيف يعمل" icon={CpuIcon}>
+                كل عملية تتم محلياً على معالج جهازك. يستخدم PaperKnife محركاً داخلياً مدعوماً بـ <span className="text-rose-500 font-bold">pdf-lib</span> و<span className="text-rose-500 font-bold">WebAssembly</span>. لا تغادر بياناتك جهازك أبداً.
               </SpecItem>
 
-              <SpecItem title="Data Privacy" icon={PrivacyIcon}>
-                Your files are loaded into the app's <span className="text-rose-500 font-bold">volatile memory (RAM)</span> only during your active session. We do not use persistent storage for your PDF content. Once you close the app or navigate away, the processed document is permanently purged.
+              <SpecItem title="خصوصية البيانات" icon={PrivacyIcon}>
+                ملفاتك تُحمَّل في <span className="text-rose-500 font-bold">الذاكرة المؤقتة (RAM)</span> فقط أثناء الجلسة. لا نستخدم تخزيناً دائماً لمحتوى PDF. بمجرد إغلاق التطبيق، يُحذف المستند نهائياً.
               </SpecItem>
 
-              <SpecItem title="Deep Metadata Clean" icon={DiskIcon}>
-                Privacy isn't just about servers. Most tools leave digital breadcrumbs in the PDF metadata. PaperKnife's "Deep Clean" protocol sanitizes every document, purging Producer, Creator, and XMP metadata to ensure absolute anonymity.
+              <SpecItem title="تنظيف البيانات الوصفية" icon={DiskIcon}>
+                معظم الأدوات تترك بصمات رقمية في بيانات PDF الوصفية. يقوم بروتوكول "التنظيف العميق" بمسح Producer وCreator وبيانات XMP لضمان الهوية المجهولة التامة.
               </SpecItem>
 
-              <SpecItem title="Open Source Integrity" icon={CodeIcon}>
-                Trust is earned through transparency. PaperKnife is <span className="text-rose-500 font-bold">100% open-source</span> under the <span className="text-rose-500 font-bold">GNU AGPL v3</span> license. This ensures the engine remains free, auditable, and community-driven forever.
+              <SpecItem title="المصدر المفتوح" icon={CodeIcon}>
+                الثقة تُكتسب بالشفافية. PaperKnife مفتوح المصدر <span className="text-rose-500 font-bold">100%</span> بموجب ترخيص <span className="text-rose-500 font-bold">GNU AGPL v3</span>. هذا يضمن بقاءه مجانياً وقابلاً للتدقيق إلى الأبد.
               </SpecItem>
 
-              <SpecItem title="Zero Infrastructure" icon={ServerOffIcon}>
-                We operate a <span className="text-rose-500 font-bold">Zero-Server Architecture</span>. We have no backend, no database, and no cloud. Your phone is the laboratory, and your documents stay in your hands alone.
+              <SpecItem title="بنية تحتية صفرية" icon={ServerOffIcon}>
+                نعمل بهندسة <span className="text-rose-500 font-bold">خادم صفري</span>. لا خادم خلفي، لا قاعدة بيانات، لا سحابة. هاتفك هو المختبر، ومستنداتك تبقى بين يديك وحدك.
               </SpecItem>
            </div>
         </div>
@@ -249,8 +249,8 @@ const AboutAPK = () => {
                    <GHIcon size={20} className="text-black dark:text-white" />
                 </div>
                 <div>
-                   <h4 className="font-bold text-sm dark:text-white">Source Code</h4>
-                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wide">AGPL v3 License</p>
+                   <h4 className="font-bold text-sm dark:text-white">الكود المصدري</h4>
+                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wide">ترخيص AGPL v3</p>
                 </div>
               </div>
               <ExternalLinkIcon size={16} className="text-gray-300" />
@@ -262,15 +262,15 @@ const AboutAPK = () => {
                    <SparklesIcon size={20} className="text-rose-500" />
                 </div>
                 <div className="text-left">
-                   <h4 className="font-bold text-sm dark:text-white">Credits</h4>
-                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wide">Hall of Fame</p>
+                   <h4 className="font-bold text-sm dark:text-white">الشكر والتقدير</h4>
+                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wide">قاعة المجد</p>
                 </div>
               </div>
               <ChevronRightIcon size={16} className="text-gray-300" />
           </button>
         </div>
 
-        <p className="text-[8px] font-black uppercase text-center text-gray-400 tracking-[0.5em] pt-8 pb-4">Handcrafted by potatameister</p>
+        <p className="text-[8px] font-black uppercase text-center text-gray-400 tracking-[0.5em] pt-8 pb-4">صُنع بعناية بواسطة potatameister</p>
       </div>
     </NativeToolLayout>
   )

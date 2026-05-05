@@ -95,12 +95,12 @@ export default function ProtectTool() {
 
   const ActionButton = () => (
     <button onClick={protectPDF} disabled={isProcessing || !password || password !== confirmPassword} className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-3 shadow-xl shadow-rose-500/20 ${isNative ? 'py-4 rounded-2xl text-sm' : 'p-6 rounded-3xl text-xl'}`}>
-      {isProcessing ? <><Loader2 className="animate-spin" /> Securing...</> : <>Encrypt & Save <ArrowRight size={18} /></>}
+      {isProcessing ? <><Loader2 className="animate-spin" /> جارٍ التشفير...</> : <>تشفير وحفظ <ArrowRight size={18} /></>}
     </button>
   )
 
   return (
-    <NativeToolLayout title="Protect PDF" description="Add strong encryption to your documents. Processed locally." actions={pdfData && !pdfData.isLocked && !objectUrl && <ActionButton />}>
+    <NativeToolLayout title="حماية PDF" description="إضافة تشفير قوي لمستنداتك. تتم المعالجة محلياً." actions={pdfData && !pdfData.isLocked && !objectUrl && <ActionButton />}>
       <input type="file" accept=".pdf" className="hidden" ref={fileInputRef} onChange={handleFileSelect} />
       {!pdfData ? (
         <button 
@@ -108,16 +108,16 @@ export default function ProtectTool() {
           className="w-full border-4 border-dashed border-gray-100 dark:border-zinc-900 rounded-[2.5rem] p-12 text-center hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all cursor-pointer group"
         >
           <div className="w-20 h-20 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"><ShieldCheck size={32} /></div>
-          <h3 className="text-xl font-bold dark:text-white mb-2">Select PDF</h3>
-          <p className="text-sm text-gray-400">Tap to browse files</p>
+          <h3 className="text-xl font-bold dark:text-white mb-2">اختر ملف PDF</h3>
+          <p className="text-sm text-gray-400">اضغط للتصفح</p>
         </button>
       ) : pdfData.isLocked ? (
         <div className="max-w-md mx-auto">
           <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-white/5 text-center">
             <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900/30 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6"><Lock size={32} /></div>
-            <h3 className="text-2xl font-bold mb-2 dark:text-white">Protected File</h3>
-            <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="Current Password" className="w-full bg-gray-50 dark:bg-black rounded-2xl px-6 py-4 border border-transparent focus:border-rose-500 outline-none font-bold text-center mb-4" />
-            <button onClick={handleUnlock} disabled={!unlockPassword || isProcessing} className="w-full bg-rose-500 text-white p-4 rounded-2xl font-black uppercase tracking-widest text-xs">{isProcessing ? '...' : 'Unlock'}</button>
+            <h3 className="text-2xl font-bold mb-2 dark:text-white">ملف محمي</h3>
+            <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="كلمة المرور الحالية" className="w-full bg-gray-50 dark:bg-black rounded-2xl px-6 py-4 border border-transparent focus:border-rose-500 outline-none font-bold text-center mb-4" />
+            <button onClick={handleUnlock} disabled={!unlockPassword || isProcessing} className="w-full bg-rose-500 text-white p-4 rounded-2xl font-black uppercase tracking-widest text-xs">{isProcessing ? '...' : 'فتح القفل'}</button>
           </div>
         </div>
       ) : (
@@ -131,16 +131,16 @@ export default function ProtectTool() {
             {!objectUrl ? (
               <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-2 tracking-widest px-1">New Password</label><input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" placeholder="••••••••" /></div>
-                  <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-2 tracking-widest px-1">Confirm Password</label><input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" placeholder="••••••••" /></div>
+                  <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-2 tracking-widest px-1">كلمة المرور الجديدة</label><input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" placeholder="••••••••" /></div>
+                  <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-2 tracking-widest px-1">تأكيد كلمة المرور</label><input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" placeholder="••••••••" /></div>
                 </div>
-                <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-2 tracking-widest px-1">Output Filename</label><input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" /></div>
+                <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-2 tracking-widest px-1">اسم الملف الناتج</label><input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" /></div>
               </div>
             ) : (
-              <SuccessState message="Encrypted Successfully" downloadUrl={objectUrl} fileName={`${customFileName || 'protected'}.pdf`} onStartOver={() => { clearUrls(); setPassword(''); setConfirmPassword(''); setPdfData(null); setIsProcessing(false); }} />
+              <SuccessState message="تم التشفير بنجاح!" downloadUrl={objectUrl} fileName={`${customFileName || 'protected'}.pdf`} onStartOver={() => { clearUrls(); setPassword(''); setConfirmPassword(''); setPdfData(null); setIsProcessing(false); }} />
             )}
-            <div className="p-4 bg-amber-50 dark:bg-amber-900/10 rounded-2xl border border-amber-100 dark:border-white/5 flex items-start gap-3"><Lock size={14} className="text-amber-500 shrink-0 mt-0.5" /><p className="text-[10px] text-amber-700 dark:text-amber-400 leading-relaxed font-medium">PaperKnife cannot recover forgotten passwords. Save it securely.</p></div>
-            <button onClick={() => { setPdfData(null); setIsProcessing(false); }} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">Close File</button>
+            <div className="p-4 bg-amber-50 dark:bg-amber-900/10 rounded-2xl border border-amber-100 dark:border-white/5 flex items-start gap-3"><Lock size={14} className="text-amber-500 shrink-0 mt-0.5" /><p className="text-[10px] text-amber-700 dark:text-amber-400 leading-relaxed font-medium">لا يمكن لـ PaperKnife استعادة كلمات المرور المنسية. احفظها في مكان آمن.</p></div>
+            <button onClick={() => { setPdfData(null); setIsProcessing(false); }} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">إغلاق الملف</button>
           </div>
         </div>
       )}
