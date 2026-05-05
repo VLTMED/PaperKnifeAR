@@ -185,7 +185,9 @@ function QuickDropModal({ file, onClear, onBack }: { file: File, onClear: () => 
 
 function App() {
   const [viewMode, setViewMode] = useState<ViewMode>(() => {
-    return Capacitor.isNativePlatform() ? 'android' : 'web'
+    if (Capacitor.isNativePlatform()) return 'android'
+    const saved = localStorage.getItem('devViewMode') as ViewMode | null
+    return saved ?? 'android'
   })
   const [droppedFile, setDroppedFile] = useState<File | null>(null)
   const [showQuickDrop, setShowQuickDrop] = useState(false)
@@ -384,7 +386,11 @@ function App() {
             {import.meta.env.DEV && (
               <div className="fixed bottom-24 right-6 z-[100] flex flex-col gap-2">
                 <button
-                  onClick={() => setViewMode(prev => prev === 'web' ? 'android' : 'web')}
+                  onClick={() => setViewMode(prev => {
+                    const next = prev === 'web' ? 'android' : 'web'
+                    localStorage.setItem('devViewMode', next)
+                    return next
+                  })}
                   className="bg-gray-900 dark:bg-zinc-800 text-white p-4 rounded-3xl shadow-2xl hover:bg-rose-500 transition-all duration-300 flex items-center gap-3 border border-white/10 group active:scale-95"
                   title="Toggle Chameleon Mode"
                 >

@@ -26,6 +26,12 @@
     <meta property="twitter:description" content="The Swiss Army Knife for PDFs. 100% Client-Side. Zero Servers. Absolute Privacy." />
     <meta property="twitter:image" content="https://potatameister.github.io/PaperKnife/icons/logo.svg" />
 
+    <!-- Preload thmanyah fonts — prevents flash of unstyled Arabic text -->
+    <link rel="preload" href="./fonts/thmanyah/thmanyahsans-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="./fonts/thmanyah/thmanyahsans-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="./fonts/thmanyah/thmanyahsans-Black.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+    <link rel="preload" href="./fonts/thmanyah/thmanyahserifdisplay-Black.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+
     <script>
       (function() {
         const savedTheme = localStorage.getItem('theme');

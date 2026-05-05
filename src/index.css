@@ -11,7 +11,7 @@
   src: url('/fonts/thmanyah/thmanyahsans-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   src: url('/fonts/thmanyah/thmanyahsans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   src: url('/fonts/thmanyah/thmanyahsans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -35,7 +35,7 @@
   src: url('/fonts/thmanyah/thmanyahsans-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -43,7 +43,7 @@
   src: url('/fonts/thmanyah/thmanyahsans-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -55,7 +55,7 @@
   src: url('/fonts/thmanyah/thmanyahserifdisplay-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 @font-face {
@@ -63,7 +63,7 @@
   src: url('/fonts/thmanyah/thmanyahserifdisplay-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
-  font-display: swap;
+  font-display: block;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -137,10 +137,10 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   تطبيق الخط على جميع العناصر الرئيسية بشكل صريح
-   Apply font explicitly to all key elements
+   تطبيق الخط على كل عنصر في الصفحة — بدون استثناء
+   Apply thmanyah Sans to EVERY element — no exceptions
    ───────────────────────────────────────────────────────────── */
-input, textarea, select, button, label, p, span, h1, h2, h3, h4, h5, h6, a, li {
+*, *::before, *::after {
   font-family: 'thmanyah Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
   font-feature-settings: "salt" 1, "calt" 1, "kern" 1, "liga" 1, "cswh" 1;
 }
