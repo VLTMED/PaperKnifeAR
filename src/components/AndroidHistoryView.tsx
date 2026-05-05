@@ -58,7 +58,7 @@ export default function AndroidHistoryView() {
       <header className="px-6 pt-[calc(env(safe-area-inset-top)+1rem)] pb-6 sticky top-0 bg-[#FAFAFA]/90 dark:bg-black/90 backdrop-blur-xl z-50 border-b border-gray-100 dark:border-white/5">
         <div className="flex items-center justify-between mb-6">
           <div className="flex flex-col text-right">
-            <h1 className="text-3xl font-black tracking-tighter dark:text-white">النشاط</h1>
+            <h1 className="text-3xl font-black tracking-tighter dark:text-white font-display-ar">النشاط</h1>
             <p className="text-[10px] font-black uppercase tracking-widest text-rose-500 opacity-80">التخزين المحلي نشط</p>
           </div>
           {history.length > 0 && (

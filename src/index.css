@@ -2,11 +2,79 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─────────────────────────────────────────────────────────────
+   خط ثمانية Sans — الخط الرئيسي للواجهة (5 أوزان)
+   thmanyah Sans — Primary UI font (Light · Regular · Medium · Bold · Black)
+   ───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyahsans-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyahsans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyahsans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyahsans-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'thmanyah Sans';
+  src: url('/fonts/thmanyah/thmanyahsans-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   خط ثمانية للعناوين — للعناوين الكبيرة والشاشات الرئيسية (2 وزن)
+   thmanyah Serif Display — Hero headings & display text only
+   ───────────────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'thmanyah Serif Display';
+  src: url('/fonts/thmanyah/thmanyahserifdisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'thmanyah Serif Display';
+  src: url('/fonts/thmanyah/thmanyahserifdisplay-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Plus Jakarta Sans — احتياطي للنصوص اللاتينية فقط
+   ───────────────────────────────────────────────────────────── */
 @font-face {
   font-family: 'Plus Jakarta Sans';
   src: url('/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -14,6 +82,7 @@
   src: url('/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -21,6 +90,7 @@
   src: url('/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -28,10 +98,25 @@
   src: url('/fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
+  font-display: swap;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   الجذر — تفعيل خط ثمانية مع خصائص OpenType الكاملة
+   Root — Enable thmanyah with full OpenType features
+   
+   "salt" 1  → الحروف المرسلة (Stylistic Alternates)
+   "calt" 1  → الوصلات السياقية التلقائية (Contextual Alternates)
+   "kern" 1  → التقنين (Kerning)
+   "liga" 1  → الإدغام (Standard Ligatures)
+   "cswh" 1  → الكشيدة المائلة بين آخر حرف وما يسبقه
+   ───────────────────────────────────────────────────────────── */
 :root {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'thmanyah Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-feature-settings: "salt" 1, "calt" 1, "kern" 1, "liga" 1, "cswh" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 html, body {
@@ -43,46 +128,63 @@ html, body {
 }
 
 body {
-  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-family: 'thmanyah Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-feature-settings: "salt" 1, "calt" 1, "kern" 1, "liga" 1, "cswh" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   @apply text-gray-900 dark:text-zinc-100 bg-[#FAFAFA] dark:bg-black transition-colors duration-500 ease-in-out;
   overflow-x: hidden;
 }
 
-/* Global seamless theme transition - target only background and text colors */
+/* ─────────────────────────────────────────────────────────────
+   تطبيق الخط على جميع العناصر الرئيسية بشكل صريح
+   Apply font explicitly to all key elements
+   ───────────────────────────────────────────────────────────── */
+input, textarea, select, button, label, p, span, h1, h2, h3, h4, h5, h6, a, li {
+  font-family: 'thmanyah Sans', 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-feature-settings: "salt" 1, "calt" 1, "kern" 1, "liga" 1, "cswh" 1;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   صنف مساعد: خط العناوين الكبيرة (Serif Display)
+   Utility class: thmanyah Serif Display for hero titles
+   ───────────────────────────────────────────────────────────── */
+.font-display-ar {
+  font-family: 'thmanyah Serif Display', 'thmanyah Sans', system-ui, serif;
+  font-feature-settings: "salt" 1, "calt" 1, "kern" 1, "liga" 1;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   تحسين العرض على شاشات Android عالية الكثافة
+   ───────────────────────────────────────────────────────────── */
+@media screen and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   انتقالات السمة
+   ───────────────────────────────────────────────────────────── */
 .theme-transition {
   @apply transition-colors duration-500 ease-in-out;
 }
 
-/* Specific component transitions */
 header, footer, nav, aside, main, section, div, button, input, select {
   transition: background-color 0.5s ease-in-out, border-color 0.5s ease-in-out, color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
-.pt-safe {
-  padding-top: env(safe-area-inset-top);
-}
+/* ─────────────────────────────────────────────────────────────
+   Safe Area Insets — Android / Capacitor
+   ───────────────────────────────────────────────────────────── */
+.pt-safe { padding-top: env(safe-area-inset-top); }
+.pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+.mt-safe { margin-top: env(safe-area-inset-top); }
 
-.pb-safe {
-  padding-bottom: env(safe-area-inset-bottom);
-}
-
-.mt-safe {
-  margin-top: env(safe-area-inset-top);
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-200 dark:bg-zinc-800 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-300 dark:bg-zinc-700;
-}
+/* ─────────────────────────────────────────────────────────────
+   شريط التمرير المخصص
+   ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { @apply bg-transparent; }
+::-webkit-scrollbar-thumb { @apply bg-gray-200 dark:bg-zinc-800 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-gray-300 dark:bg-zinc-700; }

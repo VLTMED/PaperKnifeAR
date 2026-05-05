@@ -8,7 +8,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        sans: ['"thmanyah Sans"', '"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+        'display-ar': ['"thmanyah Serif Display"', '"thmanyah Sans"', 'system-ui', 'serif'],
+        latin: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         slideIn: {
