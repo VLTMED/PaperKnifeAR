@@ -29,7 +29,7 @@ export const NativeToolLayout = ({
         <header className="px-4 pt-safe pb-1 flex items-center justify-between sticky top-0 z-30 bg-[#FAFAFA]/95 dark:bg-black/95 backdrop-blur-xl md:hidden border-b border-gray-100 dark:border-white/5">
           <div className="w-10" />
           <div className="flex items-center gap-2 h-14">
-            <h1 className="text-lg font-black tracking-tight text-gray-900 dark:text-white ml-1">{title}</h1>
+            <h1 className="text-lg font-black tracking-tight text-gray-900 dark:text-white ml-1 font-display-ar">{title}</h1>
             <button 
               onClick={onBack || (() => navigate(-1))}
               className="w-10 h-10 flex items-center justify-center rounded-full active:bg-zinc-100 dark:active:bg-zinc-900 transition-colors"

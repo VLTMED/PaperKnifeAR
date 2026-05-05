@@ -98,7 +98,7 @@ export default function AndroidView({ theme, toggleTheme, onFileSelect }: Androi
                     </div>
                  </div>
                  <div>
-                    <h2 className="text-3xl font-black text-white dark:text-black tracking-tight leading-none mb-2">اختر ملف PDF</h2>
+                    <h2 className="text-3xl font-black text-white dark:text-black tracking-tight leading-none mb-2 font-display-ar">اختر ملف PDF</h2>
                     <p className="text-[11px] font-bold text-zinc-400 dark:text-zinc-600 uppercase tracking-tight">اضغط للتحميل من ذاكرة الجهاز</p>
                  </div>
               </div>
