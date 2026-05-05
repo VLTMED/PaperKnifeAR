@@ -8,7 +8,9 @@ export default defineConfig({
   ],
   base: process.env.VITE_BASE || './',
   server: {
-    host: true
+    host: '0.0.0.0',
+    port: 5000,
+    allowedHosts: 'all'
   },
   build: {
     target: 'esnext',
