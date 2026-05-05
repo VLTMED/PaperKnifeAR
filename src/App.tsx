@@ -89,7 +89,7 @@ function QuickDropModal({ file, onClear, onBack }: { file: File, onClear: () => 
   const otherTools = activeTools.slice(4)
 
   const handleAction = async (path: string, title: string) => {
-    toast.loading(`Importing ${file.name}...`, { id: 'quick-load' })
+    toast.loading(`جارٍ استيراد ${file.name}...`, { id: 'quick-load' })
     
     try {
       const buffer = await file.arrayBuffer()
@@ -101,9 +101,9 @@ function QuickDropModal({ file, onClear, onBack }: { file: File, onClear: () => 
 
       onClear()
       navigate(path)
-      toast.success(`Opened in ${title}`, { id: 'quick-load' })
+      toast.success(`تم الفتح في ${title}`, { id: 'quick-load' })
     } catch (err) {
-      toast.error('Failed to process file', { id: 'quick-load' })
+      toast.error('فشل في معالجة الملف', { id: 'quick-load' })
     }
   }
 
@@ -125,7 +125,7 @@ function QuickDropModal({ file, onClear, onBack }: { file: File, onClear: () => 
                 </div>
                 <div className="min-w-0">
                    <h3 className="text-lg font-black dark:text-white truncate max-w-[200px] leading-none mb-1">{file.name}</h3>
-                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{(file.size / (1024*1024)).toFixed(2)} MB • PDF Document</p>
+                   <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{(file.size / (1024*1024)).toFixed(2)} MB • مستند PDF</p>
                 </div>
              </div>
              <button onClick={onClear} className="p-2 bg-gray-100 dark:bg-zinc-900 rounded-full text-gray-400 hover:text-rose-500 transition-colors"><X size={18}/></button>
@@ -134,7 +134,7 @@ function QuickDropModal({ file, onClear, onBack }: { file: File, onClear: () => 
         
         <div className="px-6 pb-6 space-y-4 max-h-[60vh] overflow-y-auto scrollbar-hide">
            <div>
-              <h4 className="text-[10px] font-black text-gray-400 dark:text-zinc-500 uppercase tracking-[0.2em] mb-3 ml-1">Essentials</h4>
+              <h4 className="text-[10px] font-black text-gray-400 dark:text-zinc-500 uppercase tracking-[0.2em] mb-3 ml-1">الأساسيات</h4>
               <div className="grid grid-cols-2 gap-2.5">
                  {essentials.map(tool => (
                    <button
@@ -156,7 +156,7 @@ function QuickDropModal({ file, onClear, onBack }: { file: File, onClear: () => 
                 onClick={() => setShowMore(!showMore)}
                 className="w-full flex items-center justify-between p-4 bg-white dark:bg-zinc-900 border border-gray-100 dark:border-white/5 rounded-2xl text-[10px] font-black uppercase tracking-widest text-gray-500 hover:text-rose-500 transition-colors shadow-sm"
               >
-                <span>Full Tool Catalog</span>
+                <span>الكتالوج الكامل</span>
                 <ChevronDown size={14} className={`transition-transform duration-300 ${showMore ? 'rotate-180' : ''}`} />
               </button>
               

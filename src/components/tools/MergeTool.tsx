@@ -373,14 +373,14 @@ export default function MergeTool() {
       disabled={isProcessing || !canMerge}
       className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl flex items-center justify-center gap-3 shadow-lg shadow-rose-500/20`}
     >
-      {isProcessing ? <><Loader2 className="animate-spin" /> {progress}%</> : <>Merge PDFs <ArrowRight size={18} /></>}
+      {isProcessing ? <><Loader2 className="animate-spin" /> {progress}%</> : <>دمج ملفات PDF <ArrowRight size={18} /></>}
     </button>
   )
 
   return (
     <NativeToolLayout
-      title="Merge PDF"
-      description="Combine multiple PDF files into one document. Processed entirely on your device."
+      title="دمج PDF"
+      description="دمج عدة ملفات PDF في مستند واحد. تتم المعالجة كلياً على جهازك."
       actions={files.length > 0 && !objectUrl && <ActionButton />}
     >
       <div 
@@ -405,8 +405,8 @@ export default function MergeTool() {
                    <RefreshCw size={24} className="animate-spin-slow" />
                 </div>
                 <div>
-                   <h4 className="font-black text-sm dark:text-white uppercase tracking-tight">Unfinished Work Found</h4>
-                   <p className="text-xs text-gray-500 dark:text-zinc-400 font-medium">We saved your previous file list. Want to restore it?</p>
+                   <h4 className="font-black text-sm dark:text-white uppercase tracking-tight">توجد أعمال غير مكتملة</h4>
+                   <p className="text-xs text-gray-500 dark:text-zinc-400 font-medium">حفظنا قائمة الملفات السابقة. هل تريد استعادتها؟</p>
                 </div>
              </div>
              <div className="flex gap-2 w-full md:w-auto">
@@ -414,13 +414,13 @@ export default function MergeTool() {
                   onClick={restoreWorkspace}
                   className="flex-1 md:flex-none px-6 py-3 bg-indigo-500 text-white rounded-xl text-xs font-black uppercase tracking-widest hover:bg-indigo-600 transition-colors shadow-lg shadow-indigo-500/20 active:scale-95"
                 >
-                  Restore
+                  استعادة
                 </button>
                 <button 
                   onClick={() => { clearWorkspace('merge'); setHasRestorableWorkspace(false); }}
                   className="flex-1 md:flex-none px-6 py-3 bg-white dark:bg-zinc-800 text-gray-400 hover:text-rose-500 rounded-xl text-xs font-black uppercase tracking-widest transition-colors active:scale-95"
                 >
-                  Discard
+                  تجاهل
                 </button>
              </div>
           </div>
@@ -431,9 +431,9 @@ export default function MergeTool() {
             <div className="space-y-4">
               <div className="flex justify-between items-center px-1">
                 <p className="text-[10px] font-black uppercase tracking-widest text-gray-400">
-                  {files.length} Files • {totalPages} Pages
+                  {files.length} ملفات • {totalPages} صفحة
                 </p>
-                <button onClick={() => { setFiles([]); clearUrls(); clearWorkspace('merge'); }} className="text-[10px] font-black uppercase text-rose-500/60 hover:text-rose-500 transition-colors font-bold">Clear All</button>
+                <button onClick={() => { setFiles([]); clearUrls(); clearWorkspace('merge'); }} className="text-[10px] font-black uppercase text-rose-500/60 hover:text-rose-500 transition-colors font-bold">مسح الكل</button>
               </div>
 
               <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
@@ -450,12 +450,12 @@ export default function MergeTool() {
                 onClick={() => fileInputRef.current?.click()}
                 className="w-full py-4 border-2 border-dashed border-gray-200 dark:border-zinc-800 rounded-2xl text-gray-400 font-black uppercase text-[10px] tracking-widest flex items-center justify-center gap-2 hover:border-rose-500 hover:text-rose-500 transition-all"
               >
-                <Plus size={16} /> Add More Files
+                <Plus size={16} /> إضافة المزيد
               </button>
 
               {!objectUrl && (
                 <div className="p-6 bg-white dark:bg-zinc-900 rounded-3xl border border-gray-100 dark:border-white/5 shadow-sm">
-                   <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">Output Filename</label>
+                   <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">اسم الملف الناتج</label>
                    <input 
                       type="text" 
                       value={customFileName}
@@ -473,8 +473,8 @@ export default function MergeTool() {
                <div className="w-20 h-20 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-inner">
                   <Upload size={32} />
                </div>
-               <h3 className="text-xl font-bold dark:text-white mb-2">Select PDF Files</h3>
-               <p className="text-sm text-gray-400 font-medium">Tap to browse or drag and drop here</p>
+               <h3 className="text-xl font-bold dark:text-white mb-2">اختر ملفات PDF</h3>
+               <p className="text-sm text-gray-400 font-medium">اضغط للتصفح أو أفلت هنا</p>
             </button>
           )}
 
@@ -489,14 +489,14 @@ export default function MergeTool() {
                 <div className="w-full bg-gray-100 dark:bg-zinc-800 h-2 rounded-full overflow-hidden">
                    <div className="bg-rose-500 h-full transition-all" style={{ width: `${progress}%` }} />
                 </div>
-                <p className="text-center text-[10px] font-black text-gray-400 uppercase tracking-widest animate-pulse">Processing on Device...</p>
+                <p className="text-center text-[10px] font-black text-gray-400 uppercase tracking-widest animate-pulse">جارٍ المعالجة على الجهاز...</p>
              </div>
           )}
 
           {objectUrl && (
             <div className="animate-in zoom-in duration-300">
               <SuccessState 
-                message="PDFs Merged Successfully!"
+                message="تم دمج الملفات بنجاح!"
                 downloadUrl={objectUrl}
                 fileName={`${customFileName || 'merged'}.pdf`}
                 onStartOver={() => { setFiles([]); clearUrls(); clearWorkspace('merge'); setIsProcessing(false); }}
