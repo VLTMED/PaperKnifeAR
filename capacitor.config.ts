@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.paperknife.app',
-  appName: 'PaperKnife',
+  appName: 'PaperKnifeAR',
   webDir: 'dist'
 };
 

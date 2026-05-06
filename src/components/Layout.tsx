@@ -138,7 +138,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
             )}
             <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity shrink-0">
               <PaperKnifeLogo size={Capacitor.isNativePlatform() ? 24 : 28} iconColor="#F43F5E" />
-              <span className="font-black tracking-tighter text-lg md:text-xl dark:text-white hidden xs:block">PaperKnife</span>
+              <span className="font-black tracking-tighter text-lg md:text-xl dark:text-white hidden xs:block">PaperKnifeAR</span>
             </Link>
             <div className="h-6 w-[1px] bg-gray-200 dark:bg-zinc-800 mx-1 md:mx-2 shrink-0" />
             <div className="relative min-w-0" ref={dropdownRef}>
@@ -174,7 +174,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
           <div className="flex items-center gap-1 md:gap-3 shrink-0">
             {isMobileBrowser && (
               <a 
-                href="https://github.com/potatameister/PaperKnife/releases/latest" 
+                href="https://github.com/VLTMED/PaperKnifeAR/releases/latest" 
                 target="_blank"
                 className="hidden xs:flex items-center gap-2 px-3 py-1.5 bg-zinc-900 dark:bg-white text-white dark:text-black rounded-xl text-[10px] font-black uppercase tracking-widest shadow-lg active:scale-95 transition-all"
               >
@@ -212,7 +212,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
               <div className="col-span-2 md:col-span-6 space-y-4">
                 <Link to="/" className="flex items-center gap-2.5 text-gray-900 dark:text-white group w-fit">
                   <PaperKnifeLogo size={22} iconColor="#F43F5E" partColor="currentColor" />
-                  <span className="font-bold tracking-tight text-lg group-hover:text-rose-500 transition-colors">PaperKnife</span>
+                  <span className="font-bold tracking-tight text-lg group-hover:text-rose-500 transition-colors">PaperKnifeAR</span>
                 </Link>
                 <p className="text-gray-500 dark:text-zinc-500 text-xs leading-relaxed max-w-sm">
                   The privacy-first PDF toolkit. 100% client-side logic. <br/>
@@ -223,7 +223,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
                       <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
                       Live Engine
                    </div>
-                   <a href="https://github.com/potatameister/PaperKnife" target="_blank" className="p-2 bg-gray-50 dark:bg-zinc-900 rounded-xl hover:bg-rose-500 hover:text-white transition-all text-gray-500 dark:text-zinc-500">
+                   <a href="https://github.com/VLTMED/PaperKnifeAR" target="_blank" className="p-2 bg-gray-50 dark:bg-zinc-900 rounded-xl hover:bg-rose-500 hover:text-white transition-all text-gray-500 dark:text-zinc-500">
                      <GHIcon size={14} />
                    </a>
                 </div>
@@ -235,7 +235,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
                 <ul className="space-y-2.5 text-xs text-gray-500 dark:text-zinc-500">
                   <li><Link to="/about" className="hover:text-rose-500 transition-colors">About</Link></li>
                   <li><Link to="/privacy" className="hover:text-rose-500 transition-colors">Privacy Spec</Link></li>
-                  <li><a href="https://github.com/potatameister/PaperKnife/blob/main/LICENSE" target="_blank" className="hover:text-rose-500 transition-colors">License</a></li>
+                  <li><a href="https://github.com/VLTMED/PaperKnifeAR/blob/main/LICENSE" target="_blank" className="hover:text-rose-500 transition-colors">License</a></li>
                 </ul>
               </div>
 
@@ -244,7 +244,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
                 <h4 className="font-bold text-[10px] uppercase tracking-widest text-gray-900 dark:text-white mb-4">Ecosystem</h4>
                 <ul className="space-y-2.5 text-xs text-gray-500 dark:text-zinc-500">
                   <li><a href="https://github.com/sponsors/potatameister" target="_blank" className="flex items-center gap-2 hover:text-rose-500 transition-colors">Sponsor <HeartIcon size={10} className="text-rose-500" /></a></li>
-                  <li><a href="https://github.com/potatameister/PaperKnife/issues" target="_blank" className="hover:text-rose-500 transition-colors">Report Bug</a></li>
+                  <li><a href="https://github.com/VLTMED/PaperKnifeAR/issues" target="_blank" className="hover:text-rose-500 transition-colors">Report Bug</a></li>
                   <li><Link to="/thanks" className="hover:text-rose-500 transition-colors">Hall of Fame</Link></li>
                 </ul>
               </div>
@@ -252,7 +252,7 @@ export default function Layout({ children, theme, toggleTheme, tools, onFileDrop
             </div>
             
             <div className="pt-6 border-t border-gray-100 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] text-gray-400 dark:text-zinc-600 font-medium">
-              <p>© 2026 PaperKnife Project. No cookies used.</p>
+              <p>© 2026 PaperKnifeAR Project. No cookies used.</p>
               <div className="flex gap-6 items-center">
                  <a href="https://github.com/potatameister" target="_blank" className="hover:text-gray-900 dark:hover:text-white transition-colors">@potatameister</a>
               </div>

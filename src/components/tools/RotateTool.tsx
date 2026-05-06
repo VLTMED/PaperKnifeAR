@@ -33,7 +33,7 @@ export default function RotateTool() {
   const [rotations, setRotations] = useState<Record<number, number>>({})
   const [isProcessing, setIsProcessing] = useState(false)
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
-  const [customFileName, setCustomFileName] = useState('paperknife-rotated')
+  const [customFileName, setCustomFileName] = useState('paperknifeAR-rotated')
   const [unlockPassword, setUnlockPassword] = useState('')
 
   useEffect(() => {
@@ -51,7 +51,7 @@ export default function RotateTool() {
     if (result.success) {
       setPdfData({ ...pdfData, isLocked: false, pageCount: result.pageCount, pdfDoc: result.pdfDoc, password: unlockPassword, thumbnail: result.thumbnail })
       setCustomFileName(`${pdfData.file.name.replace('.pdf', '')}-rotated`)
-    } else { toast.error('Incorrect password') }
+    } else { toast.error('كلمة مرور خاطئة') }
     setIsProcessing(false)
   }
 
@@ -94,27 +94,27 @@ export default function RotateTool() {
 
   const ActionButton = () => (
     <button onClick={savePDF} disabled={isProcessing} className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-3 shadow-lg shadow-rose-500/20 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl`}>
-      {isProcessing ? <Loader2 className="animate-spin" /> : <RotateCw size={20} />} Save Rotated PDF
+      {isProcessing ? <Loader2 className="animate-spin" /> : <RotateCw size={20} />} حفظ الملف المدوَّر
     </button>
   )
 
   return (
-    <NativeToolLayout title="Rotate PDF" description="Tap individual pages to rotate 90 degrees." actions={pdfData && !pdfData.isLocked && !downloadUrl && <ActionButton />}>
+    <NativeToolLayout title="تدوير PDF" description="اضغط على أي صفحة لتدويرها 90 درجة." actions={pdfData && !pdfData.isLocked && !downloadUrl && <ActionButton />}>
       <input type="file" accept=".pdf" className="hidden" ref={fileInputRef} onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])} />
       
       {!pdfData ? (
         <div onClick={() => !isProcessing && fileInputRef.current?.click()} className="border-4 border-dashed border-gray-100 dark:border-zinc-900 rounded-[2.5rem] p-12 text-center hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all cursor-pointer group">
           <div className="w-20 h-20 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"><RotateCw size={32} /></div>
-          <h3 className="text-xl font-bold dark:text-white mb-2">Select PDF</h3>
-          <p className="text-sm text-gray-400">Tap to start rotating</p>
+          <h3 className="text-xl font-bold dark:text-white mb-2">اختر ملف PDF</h3>
+          <p className="text-sm text-gray-400">اضغط للبدء</p>
         </div>
       ) : pdfData.isLocked ? (
         <div className="max-w-md mx-auto relative z-[100]">
           <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-white/5 text-center shadow-2xl">
             <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900/30 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6"><Lock size={32} /></div>
-            <h3 className="text-2xl font-bold mb-2 dark:text-white">Protected File</h3>
-            <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="Password" className="w-full bg-gray-50 dark:bg-black rounded-2xl px-6 py-4 border border-transparent focus:border-rose-500 outline-none font-bold text-center mb-4 dark:text-white" />
-            <button onClick={handleUnlock} disabled={!unlockPassword || isProcessing} className="w-full bg-rose-500 text-white p-4 rounded-2xl font-black uppercase text-xs">Unlock</button>
+            <h3 className="text-2xl font-bold mb-2 dark:text-white">ملف محمي</h3>
+            <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="كلمة المرور" className="w-full bg-gray-50 dark:bg-black rounded-2xl px-6 py-4 border border-transparent focus:border-rose-500 outline-none font-bold text-center mb-4 dark:text-white" />
+            <button onClick={handleUnlock} disabled={!unlockPassword || isProcessing} className="w-full bg-rose-500 text-white p-4 rounded-2xl font-black uppercase text-xs">فتح</button>
           </div>
         </div>
       ) : (
@@ -133,17 +133,17 @@ export default function RotateTool() {
               <RotateCw size={20} />
             </div>
             <div className="flex-1">
-              <h4 className="text-sm font-black text-rose-500 uppercase tracking-tight leading-none mb-1">Visual Editor</h4>
-              <p className="text-xs text-rose-500/70 font-bold">Tap any page thumbnail below to rotate it 90° clockwise.</p>
+              <h4 className="text-sm font-black text-rose-500 uppercase tracking-tight leading-none mb-1">محرر بصري</h4>
+              <p className="text-xs text-rose-500/70 font-bold">اضغط على أي صفحة أدناه لتدويرها 90° في اتجاه عقارب الساعة.</p>
             </div>
           </div>
 
           <div className="bg-white dark:bg-zinc-900 p-6 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm">
             <div className="flex justify-between items-center mb-6">
-              <h4 className="font-black uppercase tracking-widest text-[10px] text-gray-400">Page Preview</h4>
+              <h4 className="font-black uppercase tracking-widest text-[10px] text-gray-400">معاينة الصفحات</h4>
               <div className="flex gap-2">
-                <button onClick={rotateAll} className="text-[10px] font-black uppercase text-rose-500 flex items-center gap-1 font-bold"><RotateCw size={12}/> All</button>
-                <button onClick={() => setRotations({})} className="text-[10px] font-black uppercase text-gray-400 flex items-center gap-1 font-bold"><RefreshCcw size={12}/> Reset</button>
+                <button onClick={rotateAll} className="text-[10px] font-black uppercase text-rose-500 flex items-center gap-1 font-bold"><RotateCw size={12}/> الكل</button>
+                <button onClick={() => setRotations({})} className="text-[10px] font-black uppercase text-gray-400 flex items-center gap-1 font-bold"><RefreshCcw size={12}/> إعادة ضبط</button>
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[60vh] overflow-y-auto p-1 scrollbar-hide">
@@ -157,7 +157,7 @@ export default function RotateTool() {
                         <RotateCw size={20} />
                       </div>
                     </div>
-                    <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[9px] font-black text-white">PAGE {pageNum}</div>
+                    <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[9px] font-black text-white">ص {pageNum}</div>
                   </div>
                 )
               })}
@@ -167,12 +167,12 @@ export default function RotateTool() {
           <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm space-y-6">
             {!downloadUrl ? (
               <div className="space-y-6">
-                <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-3">Output Filename</label><input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" /></div>
+                <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-3">اسم الملف</label><input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" /></div>
               </div>
             ) : (
-              <SuccessState message="PDF Rotated Successfully!" downloadUrl={downloadUrl} fileName={`${customFileName}.pdf`} onStartOver={() => { setDownloadUrl(null); setPdfData(null); }} />
+              <SuccessState message="تم التدوير بنجاح!" downloadUrl={downloadUrl} fileName={`${customFileName}.pdf`} onStartOver={() => { setDownloadUrl(null); setPdfData(null); }} />
             )}
-            <button onClick={() => setPdfData(null)} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">Close File</button>
+            <button onClick={() => setPdfData(null)} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">إغلاق الملف</button>
           </div>
         </div>
       )}

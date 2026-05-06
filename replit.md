@@ -1,4 +1,4 @@
-# PaperKnife
+# PaperKnifeAR
 
 A privacy-focused, 100% offline PDF utility that runs entirely in the browser — merge, split, compress, sign, and sanitize PDFs without data leaving the device.
 
@@ -52,3 +52,4 @@ _Populate as you build_
 - [pdf-lib docs](https://pdf-lib.js.org/)
 - [pdfjs-dist docs](https://mozilla.github.io/pdf.js/)
 - [Capacitor docs](https://capacitorjs.com/docs)
+- GitHub: https://github.com/VLTMED/PaperKnifeAR

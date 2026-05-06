@@ -53,7 +53,7 @@ export default function SplitTool() {
   const [isProcessing, setIsProcessing] = useState(false)
   const [isLoadingMeta, setIsLoadingMeta] = useState(false)
   const [selectedPages, setSelectedPages] = useState<Set<number>>(new Set())
-  const [customFileName, setCustomFileName] = useState('paperknife-split')
+  const [customFileName, setCustomFileName] = useState('paperknifeAR-split')
   const [rangeInput, setRangeInput] = useState('')
   const [splitMode, setSplitMode] = useState<'single' | 'individual'>('single')
   const [unlockPassword, setUnlockPassword] = useState('')
@@ -75,7 +75,7 @@ export default function SplitTool() {
       const all = new Set<number>(); for (let i = 1; i <= result.pageCount; i++) all.add(i)
       setSelectedPages(all); setRangeInput(`1-${result.pageCount}`)
     } else {
-      toast.error('Incorrect password')
+      toast.error('كلمة مرور خاطئة')
     }
     setIsLoadingMeta(false)
   }
@@ -168,14 +168,14 @@ export default function SplitTool() {
       disabled={isProcessing || selectedPages.size === 0}
       className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl flex items-center justify-center gap-3 shadow-lg shadow-rose-500/20`}
     >
-      {isProcessing ? <><Loader2 className="animate-spin" /> Working...</> : <>Extract {selectedPages.size} Pages <ArrowRight size={18} /></>}
+      {isProcessing ? <><Loader2 className="animate-spin" /> جارٍ المعالجة...</> : <>استخراج {selectedPages.size} صفحة <ArrowRight size={18} /></>}
     </button>
   )
 
   return (
     <NativeToolLayout
-      title="Split PDF"
-      description="Select pages visually or by range to extract them. Everything stays on your device."
+      title="تقسيم PDF"
+      description="اختر الصفحات بصرياً أو بالنطاق. تتم المعالجة محلياً على جهازك."
       actions={pdfData && !pdfData.isLocked && !objectUrl && <ActionButton />}
     >
       <input type="file" accept=".pdf" className="hidden" ref={fileInputRef} onChange={handleFileSelect} />
@@ -188,15 +188,15 @@ export default function SplitTool() {
           {isLoadingMeta ? (
             <div className="flex flex-col items-center">
               <Loader2 size={48} className="text-rose-500 animate-spin mb-4" />
-              <h3 className="text-xl font-bold mb-2">Analyzing PDF...</h3>
+              <h3 className="text-xl font-bold mb-2">تحليل الملف...</h3>
             </div>
           ) : (
             <>
               <div className="w-20 h-20 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Scissors size={32} />
               </div>
-              <h3 className="text-xl font-bold dark:text-white mb-2">Select PDF File</h3>
-              <p className="text-sm text-gray-400 font-medium">Tap to start splitting</p>
+              <h3 className="text-xl font-bold dark:text-white mb-2">اختر ملف PDF</h3>
+              <p className="text-sm text-gray-400 font-medium">اضغط للبدء</p>
             </>
           )}
         </button>
@@ -206,12 +206,12 @@ export default function SplitTool() {
             <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900/30 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <Lock size={32} />
             </div>
-            <h3 className="text-2xl font-bold mb-2 dark:text-white">Protected File</h3>
+            <h3 className="text-2xl font-bold mb-2 dark:text-white">ملف محمي</h3>
             <input 
               type="password" 
               value={unlockPassword}
               onChange={(e) => setUnlockPassword(e.target.value)}
-              placeholder="Enter Password"
+              placeholder="أدخل كلمة المرور"
               className="w-full bg-gray-50 dark:bg-black rounded-2xl px-6 py-4 border border-transparent focus:border-rose-500 outline-none font-bold text-center mb-4 dark:text-white"
               autoFocus
             />
@@ -220,7 +220,7 @@ export default function SplitTool() {
               disabled={!unlockPassword || isLoadingMeta}
               className="w-full bg-rose-500 text-white p-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all active:scale-95 disabled:opacity-50"
             >
-              Unlock PDF
+              فتح الملف
             </button>
           </div>
         </div>
@@ -241,8 +241,8 @@ export default function SplitTool() {
                   <Zap size={16} />
                </div>
                <div className="min-w-0">
-                  <p className="text-[10px] font-black uppercase tracking-widest leading-none mb-1">Heavy Document</p>
-                  <p className="text-[11px] font-medium leading-tight">Visual selection for large files may be slower. Use range selection for speed.</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest leading-none mb-1">ملف ثقيل</p>
+                  <p className="text-[11px] font-medium leading-tight">قد يكون الاختيار البصري للملفات الكبيرة أبطأ. استخدم نطاق الصفحات للسرعة.</p>
                </div>
             </div>
           )}
@@ -251,10 +251,10 @@ export default function SplitTool() {
             <div className="lg:col-span-2 space-y-6">
               <div className="bg-white dark:bg-zinc-900 p-6 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm">
                 <div className="flex justify-between items-center mb-6">
-                  <h4 className="font-black uppercase tracking-widest text-[10px] text-gray-400 px-2">Page Selection</h4>
+                  <h4 className="font-black uppercase tracking-widest text-[10px] text-gray-400 px-2">اختيار الصفحات</h4>
                   <div className="flex gap-2">
-                    <button onClick={() => { const all = new Set<number>(); for(let i=1;i<=pdfData.pageCount;i++) all.add(i); setSelectedPages(all); }} className="text-[10px] font-black uppercase text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 px-2 py-1 rounded-lg transition-colors">Select All</button>
-                    <button onClick={() => setSelectedPages(new Set())} className="text-[10px] font-black uppercase text-gray-400 px-2 py-1 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors">Clear</button>
+                    <button onClick={() => { const all = new Set<number>(); for(let i=1;i<=pdfData.pageCount;i++) all.add(i); setSelectedPages(all); }} className="text-[10px] font-black uppercase text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 px-2 py-1 rounded-lg transition-colors">الكل</button>
+                    <button onClick={() => setSelectedPages(new Set())} className="text-[10px] font-black uppercase text-gray-400 px-2 py-1 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors">مسح</button>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[60vh] overflow-y-auto p-1 scrollbar-hide">
@@ -268,7 +268,7 @@ export default function SplitTool() {
                               {isSelected ? <Check size={20} strokeWidth={3} /> : <Plus size={20} />}
                            </div>
                         </div>
-                        <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[9px] font-black text-white">PAGE {pageNum}</div>
+                        <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[9px] font-black text-white">ص {pageNum}</div>
                       </div>
                     )
                   })}
@@ -281,37 +281,37 @@ export default function SplitTool() {
                 <div className="space-y-6">
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">Split Mode</label>
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">وضع التقسيم</label>
                       <div className="grid grid-cols-2 gap-2 bg-gray-50 dark:bg-black p-1 rounded-2xl">
-                        <button onClick={() => { setSplitMode('single'); clearUrls(); }} className={`py-2 px-3 rounded-xl text-[9px] font-black uppercase transition-all ${splitMode === 'single' ? 'bg-white dark:bg-zinc-800 text-rose-500 shadow-sm' : 'text-gray-400'}`}>One Document</button>
-                        <button onClick={() => { setSplitMode('individual'); clearUrls(); }} className={`py-2 px-3 rounded-xl text-[9px] font-black uppercase transition-all ${splitMode === 'individual' ? 'bg-white dark:bg-zinc-800 text-rose-500 shadow-sm' : 'text-gray-400'}`}>Separate Files</button>
+                        <button onClick={() => { setSplitMode('single'); clearUrls(); }} className={`py-2 px-3 rounded-xl text-[9px] font-black uppercase transition-all ${splitMode === 'single' ? 'bg-white dark:bg-zinc-800 text-rose-500 shadow-sm' : 'text-gray-400'}`}>ملف واحد</button>
+                        <button onClick={() => { setSplitMode('individual'); clearUrls(); }} className={`py-2 px-3 rounded-xl text-[9px] font-black uppercase transition-all ${splitMode === 'individual' ? 'bg-white dark:bg-zinc-800 text-rose-500 shadow-sm' : 'text-gray-400'}`}>ملفات منفصلة</button>
                       </div>
                       <p className="text-[8px] text-gray-400 mt-2 px-1 leading-relaxed font-bold uppercase tracking-tight">
-                        <b>One Document:</b> Merges selected pages into one PDF.<br/>
-                        <b>Separate Files:</b> Each page becomes its own PDF (ZIP).
+                        <b>ملف واحد:</b> يدمج الصفحات المختارة في ملف PDF واحد.<br/>
+                        <b>ملفات منفصلة:</b> كل صفحة تصبح ملف PDF مستقل (ZIP).
                       </p>
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">Output Filename</label>
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">اسم الملف</label>
                       <input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">Range Selection</label>
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">نطاق الصفحات</label>
                       <div className="flex gap-2">
-                        <input type="text" value={rangeInput} onChange={(e) => setRangeInput(e.target.value)} placeholder="e.g. 1, 3-5" className="flex-1 bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" />
-                        <button onClick={() => parseRange(rangeInput)} className="px-4 bg-rose-500 text-white rounded-xl font-black text-[10px] uppercase active:scale-95 transition-transform">Apply</button>
+                        <input type="text" value={rangeInput} onChange={(e) => setRangeInput(e.target.value)} placeholder="مثال: 1, 3-5" className="flex-1 bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" />
+                        <button onClick={() => parseRange(rangeInput)} className="px-4 bg-rose-500 text-white rounded-xl font-black text-[10px] uppercase active:scale-95 transition-transform">تطبيق</button>
                       </div>
-                      <p className="text-[8px] text-gray-400 mt-2 px-1">Use commas for separate pages and dashes for ranges.</p>
+                      <p className="text-[8px] text-gray-400 mt-2 px-1">استخدم الفاصلة للصفحات المنفصلة والشرطة للنطاقات.</p>
                     </div>
                   </div>
                   <div className="pt-6 border-t border-gray-100 dark:border-white/5">
                     <div className="flex justify-between items-end mb-4 px-1">
-                      <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Selected</span>
-                      <span className="text-xl font-black text-rose-500">{selectedPages.size} <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Pages</span></span>
+                      <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">المحدد</span>
+                      <span className="text-xl font-black text-rose-500">{selectedPages.size} <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">صفحة</span></span>
                     </div>
                     {objectUrl && (
                       <SuccessState 
-                        message="Split Successful!"
+                        message="تم التقسيم بنجاح!"
                         downloadUrl={objectUrl}
                         fileName={`${customFileName || 'split'}.${splitMode === 'single' ? 'pdf' : 'zip'}`}
                         onStartOver={() => { clearUrls(); setPdfData(null); setIsProcessing(false); }}
@@ -319,7 +319,7 @@ export default function SplitTool() {
                       />
                     )}
                   </div>
-                  <button onClick={() => { setPdfData(null); clearUrls(); }} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">Close File</button>
+                  <button onClick={() => { setPdfData(null); clearUrls(); }} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">إغلاق الملف</button>
                 </div>
               </div>
             </div>
