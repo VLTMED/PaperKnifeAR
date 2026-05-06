@@ -96,3 +96,17 @@ jobs:
             paperknife-v${{ env.APP_VERSION }}.apk
             paperknife-lite-v${{ env.APP_VERSION }}.apk
           if-no-files-found: error
+
+      - name: Upload Global APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: PaperKnife-v${{ env.APP_VERSION }}-global
+          path: paperknife-v${{ env.APP_VERSION }}.apk
+          if-no-files-found: error
+
+      - name: Upload Lite APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: PaperKnife-v${{ env.APP_VERSION }}-lite
+          path: paperknife-lite-v${{ env.APP_VERSION }}.apk
+          if-no-files-found: error
