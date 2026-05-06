@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">PaperKnifeAR</string>
     <string name="title_activity_main">PaperKnifeAR</string>
-    <string name="package_name">com.paperknife.app</string>
-    <string name="custom_url_scheme">com.paperknife.app</string>
+    <string name="package_name">com.paperknifeAR.app</string>
+    <string name="custom_url_scheme">com.paperknifeAR.app</string>
 </resources>
