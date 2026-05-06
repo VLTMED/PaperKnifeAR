@@ -8,7 +8,7 @@
    ───────────────────────────────────────────────────────────── */
 @font-face {
   font-family: 'thmanyah Sans';
-  src: url('./fonts/thmanyah/thmanyahsans-Light.ttf') format('truetype');
+  src: url('/fonts/thmanyah/thmanyahsans-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'thmanyah Sans';
-  src: url('./fonts/thmanyah/thmanyahsans-Regular.ttf') format('truetype');
+  src: url('/fonts/thmanyah/thmanyahsans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'thmanyah Sans';
-  src: url('./fonts/thmanyah/thmanyahsans-Medium.ttf') format('truetype');
+  src: url('/fonts/thmanyah/thmanyahsans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: 'thmanyah Sans';
-  src: url('./fonts/thmanyah/thmanyahsans-Bold.ttf') format('truetype');
+  src: url('/fonts/thmanyah/thmanyahsans-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: 'thmanyah Sans';
-  src: url('./fonts/thmanyah/thmanyahsans-Black.ttf') format('truetype');
+  src: url('/fonts/thmanyah/thmanyahsans-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -52,7 +52,7 @@
    ───────────────────────────────────────────────────────────── */
 @font-face {
   font-family: 'thmanyah Serif Display';
-  src: url('./fonts/thmanyah/thmanyahserifdisplay-Bold.ttf') format('truetype');
+  src: url('/fonts/thmanyah/thmanyahserifdisplay-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -60,7 +60,7 @@
 
 @font-face {
   font-family: 'thmanyah Serif Display';
-  src: url('./fonts/thmanyah/thmanyahserifdisplay-Black.ttf') format('truetype');
+  src: url('/fonts/thmanyah/thmanyahserifdisplay-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -71,7 +71,7 @@
    ───────────────────────────────────────────────────────────── */
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('./fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+  src: url('/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -79,7 +79,7 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('./fonts/PlusJakartaSans-Medium.ttf') format('truetype');
+  src: url('/fonts/PlusJakartaSans-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -87,7 +87,7 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('./fonts/PlusJakartaSans-Bold.ttf') format('truetype');
+  src: url('/fonts/PlusJakartaSans-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -95,7 +95,7 @@
 
 @font-face {
   font-family: 'Plus Jakarta Sans';
-  src: url('./fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype');
+  src: url('/fonts/PlusJakartaSans-ExtraBold.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;

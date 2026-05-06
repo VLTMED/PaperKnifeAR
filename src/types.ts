@@ -8,7 +8,6 @@ export type ToolCategory = 'Edit' | 'Secure' | 'Convert' | 'Optimize'
 export interface Tool {
 
   title: string
-  i18nKey?: string
 
   desc: string
 
