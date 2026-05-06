@@ -27,7 +27,7 @@
 
 Most PDF websites ask you to upload your sensitive documents—bank statements, IDs, contracts—to their servers. Even if they promise to delete them, your data still leaves your device and travels across the internet.
 
-I built **PaperKnife** to solve this. It's a collection of tools that run entirely in your browser or on your phone. Your files never leave your memory, they aren't stored in any database, and no server ever sees them. It works 100% offline.
+I built **PaperKnifeAR** to solve this. It's a collection of tools that run entirely in your browser or on your phone. Your files never leave your memory, they aren't stored in any database, and no server ever sees them. It works 100% offline.
 
 ### What it can do
 
@@ -50,7 +50,7 @@ I built **PaperKnife** to solve this. It's a collection of tools that run entire
 
 ### Support the project
 
-PaperKnife is a solo project. It's open-source, ad-free, and tracker-free because I believe privacy is a right, not a luxury.
+PaperKnifeAR is a solo project. It's open-source, ad-free, and tracker-free because I believe privacy is a right, not a luxury.
 
 If this tool has saved you time or kept your data safe, please consider:
 *   **Sponsoring:** Support development via [GitHub Sponsors](https://github.com/sponsors/potatameister).
@@ -61,7 +61,7 @@ If this tool has saved you time or kept your data safe, please consider:
 
 ### Under the hood
 
-PaperKnife is built with **React** and **TypeScript**. The core processing is handled by **pdf-lib** and **pdfjs-dist**, which run in a sandboxed environment using WebAssembly. The Android version is powered by **Capacitor**.
+PaperKnifeAR is built with **React** and **TypeScript**. The core processing is handled by **pdf-lib** and **pdfjs-dist**, which run in a sandboxed environment using WebAssembly. The Android version is powered by **Capacitor**.
 
 This project is licensed under the **GNU AGPL v3** to ensure it remains open and transparent forever.
 

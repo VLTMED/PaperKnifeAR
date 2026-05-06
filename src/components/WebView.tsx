@@ -1,5 +1,5 @@
 /**
- * PaperKnife - Professional Web Dashboard
+ * PaperKnifeAR - Professional Web Dashboard
  * A desktop-optimized, sidebar-driven interface.
  */
 

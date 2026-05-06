@@ -1,5 +1,5 @@
 /**
- * PaperKnife - The Swiss Army Knife for PDFs
+ * PaperKnifeAR - The Swiss Army Knife for PDFs
  * Copyright (C) 2026 potatameister
  * 
  * This program is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ export interface PdfMetaData {
 // Fixed cMapUrl for true offline usage (relative to base)
 const getCMapUrl = () => {
   const isCapacitor = Capacitor.isNativePlatform();
-  return isCapacitor ? 'cmaps/' : '/PaperKnife/cmaps/';
+  return isCapacitor ? 'cmaps/' : '/PaperKnifeAR/cmaps/';
 };
 
 /**

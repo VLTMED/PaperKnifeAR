@@ -1,1 +1,1 @@
-PaperKnife: Privacy-First PDF Utility
+PaperKnifeAR: Privacy-First PDF Utility

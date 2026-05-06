@@ -32,7 +32,7 @@ export default function SignatureTool() {
   const [signatureFile, setSignatureFile] = useState<File | null>(null)
   const [isProcessing, setIsProcessing] = useState(false)
   const [downloadUrl, setDownloadUrl] = useState<string | null>(null)
-  const [customFileName, setCustomFileName] = useState('paperknife-signed')
+  const [customFileName, setCustomFileName] = useState('paperknifeAR-signed')
   const [unlockPassword, setUnlockPassword] = useState('')
   const [activePage] = useState(1)
   const [pos, setPos] = useState({ x: 50, y: 50 })

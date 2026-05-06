@@ -1,12 +1,12 @@
 /**
- * PaperKnife - Privacy Protocol
+ * PaperKnifeAR - Privacy Protocol
  * Absolute data sovereignty and zero-telemetry specification.
  */
 
 import { Shield, EyeOff, ServerOff, Database as DatabaseIcon, History as HistoryIcon, ExternalLink, Lock, Trash2, Cpu } from 'lucide-react'
 import { Capacitor } from '@capacitor/core'
 import { NativeToolLayout } from './tools/shared/NativeToolLayout'
-import { PaperKnifeLogo } from './Logo'
+import { PaperKnifeARLogo } from './Logo'
 
 // --- WEB VERSION (TITAN HIGH-DENSITY) ---
 const PrivacyWeb = () => {
@@ -99,7 +99,7 @@ const PrivacyWeb = () => {
         </div>
 
         <div className="pt-12 text-center opacity-30">
-           <PaperKnifeLogo size={32} iconColor="#10B981" partColor="currentColor" className="mx-auto mb-4" />
+           <PaperKnifeARLogo size={32} iconColor="#10B981" partColor="currentColor" className="mx-auto mb-4" />
            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-gray-400">Privacy Protocol v1.0.9 Stable</p>
         </div>
       </div>

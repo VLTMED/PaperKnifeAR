@@ -1,5 +1,5 @@
 /**
- * PaperKnife - About & Protocol Specification
+ * PaperKnifeAR - About & Protocol Specification
  * Professional-grade technical details and sustainability protocol.
  */
 
@@ -21,7 +21,7 @@ import {
 import { useNavigate } from 'react-router-dom'
 import { Capacitor } from '@capacitor/core'
 import { NativeToolLayout } from './tools/shared/NativeToolLayout'
-import { PaperKnifeLogo } from './Logo'
+import { PaperKnifeARLogo } from './Logo'
 import { ViewMode } from '../types'
 
 // --- UI COMPONENTS ---
@@ -160,7 +160,7 @@ const AboutWeb = () => {
         </div>
         
         <div className="opacity-20 hover:opacity-50 transition-opacity duration-700">
-          <PaperKnifeLogo size={32} iconColor="#F43F5E" partColor="currentColor" className="mx-auto mb-4" />
+          <PaperKnifeARLogo size={32} iconColor="#F43F5E" partColor="currentColor" className="mx-auto mb-4" />
           <p className="text-[9px] font-black uppercase tracking-[0.6em] text-gray-400">potatameister</p>
         </div>
       </section>
@@ -180,7 +180,7 @@ const AboutAPK = () => {
         {/* 1. App Identity */}
         <div className="bg-white dark:bg-zinc-900 rounded-[2rem] p-6 border border-gray-100 dark:border-white/5 shadow-sm flex flex-col items-center text-center">
           <div className="w-20 h-20 bg-gray-50 dark:bg-black rounded-[1.5rem] flex items-center justify-center shadow-inner mb-4">
-            <PaperKnifeLogo size={40} iconColor="#F43F5E" partColor="currentColor" />
+            <PaperKnifeARLogo size={40} iconColor="#F43F5E" partColor="currentColor" />
           </div>
           <h2 className="text-2xl font-black tracking-tighter dark:text-white leading-none mb-1 font-display-ar">PaperKnifeAR</h2>
           <p className="text-[9px] font-black uppercase tracking-widest text-rose-500">v1.0.9 مستقر • خصوصية مطلقة</p>

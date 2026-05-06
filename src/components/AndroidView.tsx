@@ -14,7 +14,7 @@ import {
 } from 'lucide-react'
 import { useState, useEffect, useRef } from 'react'
 import { getRecentActivity, ActivityEntry } from '../utils/recentActivity'
-import { PaperKnifeLogo } from './Logo'
+import { PaperKnifeARLogo } from './Logo'
 
 interface AndroidViewProps {
   theme: 'light' | 'dark'
@@ -59,7 +59,7 @@ export default function AndroidView({ theme, toggleTheme, onFileSelect }: Androi
       <header className="px-6 pt-safe pb-2 sticky top-0 z-50 bg-[#FAFAFA]/95 dark:bg-black/95 backdrop-blur-xl border-b border-transparent">
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center gap-3">
-             <PaperKnifeLogo size={24} iconColor="#F43F5E" partColor="currentColor" />
+             <PaperKnifeARLogo size={24} iconColor="#F43F5E" partColor="currentColor" />
              <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
                    <span className="text-lg font-black tracking-tighter text-gray-900 dark:text-white leading-none">PaperKnifeAR</span>

@@ -1,5 +1,5 @@
 /**
- * PaperKnife - The Swiss Army Knife for PDFs
+ * PaperKnifeAR - The Swiss Army Knife for PDFs
  * Copyright (C) 2026 potatameister
  */
 
@@ -9,7 +9,7 @@ import { X, Plus, Loader2, Lock, Share2, Unlock } from 'lucide-react'
 import { toast } from 'sonner'
 import { App } from '@capacitor/app'
 import { loadPdfDocument, renderPageThumbnail, shareFile, unlockPdf } from '../utils/pdfHelpers'
-import { PaperKnifeLogo } from './Logo'
+import { PaperKnifeARLogo } from './Logo'
 
 interface PdfPreviewProps {
   file: File
@@ -154,7 +154,7 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
           </button>
           <div className="flex items-center gap-2.5 min-w-0">
              <div className="w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-xl shrink-0">
-                <PaperKnifeLogo size={20} iconColor="#F43F5E" partColor="#000000" />
+                <PaperKnifeARLogo size={20} iconColor="#F43F5E" partColor="#000000" />
              </div>
              <div className="hidden sm:block min-w-0">
                 <h2 className="text-sm font-black text-white truncate max-w-[140px] leading-tight">{file.name}</h2>

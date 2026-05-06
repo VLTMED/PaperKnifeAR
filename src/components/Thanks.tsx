@@ -1,7 +1,7 @@
 import { Github as GHIcon, Heart as HeartIcon, Sparkles, ChevronRight } from 'lucide-react'
 import { Capacitor } from '@capacitor/core'
 import { NativeToolLayout } from './tools/shared/NativeToolLayout'
-import { PaperKnifeLogo } from './Logo'
+import { PaperKnifeARLogo } from './Logo'
 
 export default function Thanks() {
   const isNative = Capacitor.isNativePlatform()
@@ -82,7 +82,7 @@ export default function Thanks() {
       </div>
 
       <footer className="text-center py-8 opacity-20">
-         <PaperKnifeLogo size={24} iconColor="#F43F5E" partColor="currentColor" className="mx-auto mb-4" />
+         <PaperKnifeARLogo size={24} iconColor="#F43F5E" partColor="currentColor" className="mx-auto mb-4" />
          <p className="text-[8px] font-black uppercase tracking-[0.5em]">PaperKnifeAR Protocol v1.0.9</p>
       </footer>
     </div>
