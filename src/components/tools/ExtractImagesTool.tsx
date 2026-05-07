@@ -10,6 +10,7 @@ import { usePipeline } from '../../utils/pipelineContext'
 import SuccessState from './shared/SuccessState'
 import PrivacyBadge from './shared/PrivacyBadge'
 import { NativeToolLayout } from './shared/NativeToolLayout'
+import { logger } from '../../utils/logger'
 
 type PdfData = { file: File, thumbnail?: string, pageCount: number, isLocked: boolean, pdfDoc?: any, password?: string }
 
@@ -55,7 +56,7 @@ export default function ExtractImagesTool() {
         setPdfData({ file, pageCount: meta.pageCount, isLocked: false, pdfDoc, thumbnail: meta.thumbnail })
         setCustomFileName(`${file.name.replace('.pdf', '')}-extracted`)
       }
-    } catch (err) { console.error(err) } finally { setIsProcessing(false); setDownloadUrl(null) }
+    } catch (err) { logger.error('extract_images_failed', { error: err }) } finally { setIsProcessing(false); setDownloadUrl(null) }
   }
 
   const extractImages = async () => {
@@ -102,7 +103,7 @@ export default function ExtractImagesTool() {
                 }
               }
             } catch (e) {
-              console.warn('Failed to extract an image object', e)
+              logger.warn('extract_image_object_failed', { error: e })
             }
           }
         }

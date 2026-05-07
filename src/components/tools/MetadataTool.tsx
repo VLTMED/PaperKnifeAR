@@ -9,6 +9,7 @@ import { usePipeline } from '../../utils/pipelineContext'
 import SuccessState from './shared/SuccessState'
 import PrivacyBadge from './shared/PrivacyBadge'
 import { NativeToolLayout } from './shared/NativeToolLayout'
+import { logger } from '../../utils/logger'
 
 type MetadataPdfData = {
   file: File
@@ -92,7 +93,7 @@ export default function MetadataTool() {
       }
       setPdfData({ file, pageCount: metaRes.pageCount, isLocked: metaRes.isLocked, currentMeta })
       setMeta(currentMeta); setCustomFileName(`${file.name.replace('.pdf', '')}-metadata`)
-    } catch (err) { console.error(err) } finally { setIsProcessing(false); setDownloadUrl(null) }
+    } catch (err) { logger.error('metadata_update_failed', { error: err }) } finally { setIsProcessing(false); setDownloadUrl(null) }
   }
 
   const saveMetadata = async (deepClean = false) => {

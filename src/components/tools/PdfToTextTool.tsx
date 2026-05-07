@@ -8,6 +8,7 @@ import { getPdfMetaData, loadPdfDocument, unlockPdf, downloadFile } from '../../
 import { usePipeline } from '../../utils/pipelineContext'
 import PrivacyBadge from './shared/PrivacyBadge'
 import { NativeToolLayout } from './shared/NativeToolLayout'
+import { logger } from '../../utils/logger'
 
 type PdfToTextData = { file: File, pageCount: number, isLocked: boolean, pdfDoc?: any, password?: string }
 type ExtractionMode = 'text' | 'ocr'
@@ -57,7 +58,7 @@ export default function PdfToTextTool() {
         setCustomFileName(`${file.name.replace('.pdf', '')}-extracted`)
       }
       setExtractedText('')
-    } catch (err) { console.error(err) } finally { setIsProcessing(false) }
+    } catch (err) { logger.error('pdf_to_text_failed', { error: err }) } finally { setIsProcessing(false) }
   }
 
   const handleStartExtraction = async () => {

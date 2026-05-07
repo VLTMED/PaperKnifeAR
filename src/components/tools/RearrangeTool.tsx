@@ -12,6 +12,7 @@ import { usePipeline } from '../../utils/pipelineContext'
 import SuccessState from './shared/SuccessState'
 import PrivacyBadge from './shared/PrivacyBadge'
 import { NativeToolLayout } from './shared/NativeToolLayout'
+import { logger } from '../../utils/logger'
 
 type RearrangePdfData = { file: File, pageCount: number, isLocked: boolean, pdfDoc?: any, password?: string, thumbnail?: string }
 
@@ -89,7 +90,7 @@ export default function RearrangeTool() {
         setPageOrder(Array.from({ length: meta.pageCount }, (_, i) => (i + 1).toString()))
         setCustomFileName(`${file.name.replace('.pdf', '')}-rearranged`)
       }
-    } catch (err) { console.error(err) } finally { setIsProcessing(false); setDownloadUrl(null) }
+    } catch (err) { logger.error('rearrange_failed', { error: err }) } finally { setIsProcessing(false); setDownloadUrl(null) }
   }
 
   const handleDragEnd = (event: DragEndEvent) => {

@@ -14,6 +14,7 @@ import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Share } from '@capacitor/share';
 // Explicitly import the worker as a URL so Vite handles it correctly
 import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+import { logger } from './logger';
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
 
@@ -80,7 +81,7 @@ export const downloadFile = async (data: Uint8Array | string, fileName: string, 
       
       return true;
     } catch (e) {
-      console.error('Download error:', e);
+      logger.error('download_failed', { error: e });
       throw e;
     }
   } else {
@@ -137,7 +138,7 @@ export const shareFile = async (data: Uint8Array | string, fileName: string, mim
       
       return true;
     } catch (e) {
-      console.error('Share error:', e);
+      logger.error('share_failed', { error: e });
       throw e;
     }
   } else {
@@ -157,7 +158,7 @@ export const shareFile = async (data: Uint8Array | string, fileName: string, mim
         });
         return true;
       } catch (e) {
-        console.error('Web share failed, falling back to download');
+        logger.warn('web_share_failed_falling_back', { error: e });
       }
     }
     
@@ -220,7 +221,7 @@ export const renderPageThumbnail = async (pdf: any, pageNum: number, scale = 1.0
     canvas.height = 0;
     return dataUrl;
   } catch (error) {
-    console.error(`Error rendering page ${pageNum}:`, error);
+    logger.error('render_page_failed', { error, pageNum });
     return '';
   }
 };
@@ -266,7 +267,7 @@ export const generateThumbnail = async (file: File, pageNum: number = 1): Promis
     const pdf = await loadPdfDocument(file);
     return await renderPageThumbnail(pdf, pageNum, 0.8);
   } catch (error) {
-    console.error('Thumbnail error:', error);
+    logger.error('thumbnail_failed', { error });
     return '';
   }
 };

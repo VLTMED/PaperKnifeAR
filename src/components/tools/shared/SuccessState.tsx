@@ -5,6 +5,7 @@ import { downloadFile, shareFile } from '../../../utils/pdfHelpers'
 import { Capacitor } from '@capacitor/core'
 import { hapticSuccess } from '../../../utils/haptics'
 import PdfPreview from '../../PdfPreview'
+import { logger } from '../../../utils/logger'
 
 interface SuccessStateProps {
   message: string
@@ -32,7 +33,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
           await downloadFile(new Uint8Array(buffer), fileName, mimeType)
           toast.success(`تم الحفظ التلقائي: ${fileName}`)
         } catch (e) {
-          console.error('Auto-download failed:', e)
+          logger.error('auto_download_failed', { error: e })
         }
       }
       triggerAutoDownload()

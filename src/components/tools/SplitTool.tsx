@@ -10,6 +10,7 @@ import { useObjectURL } from '../../utils/useObjectURL'
 import SuccessState from './shared/SuccessState'
 import PrivacyBadge from './shared/PrivacyBadge'
 import { NativeToolLayout } from './shared/NativeToolLayout'
+import { logger } from '../../utils/logger'
 
 type SplitPdfFile = {
   file: File
@@ -94,7 +95,7 @@ export default function SplitTool() {
         setSelectedPages(all); setRangeInput(`1-${meta.pageCount}`)
       }
     } catch (err) {
-      console.error(err)
+      logger.error('split_failed', { error: err })
     } finally {
       setIsLoadingMeta(false)
       clearUrls()

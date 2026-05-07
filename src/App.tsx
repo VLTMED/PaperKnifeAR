@@ -23,6 +23,7 @@ import Layout from './components/Layout'
 import { PipelineProvider, usePipeline } from './utils/pipelineContext'
 import { ViewModeProvider } from './utils/viewModeContext'
 import { clearActivity, updateLastSeen, getLastSeen } from './utils/recentActivity'
+import { logger } from './utils/logger'
 import ScrollToTop from './components/ScrollToTop'
 
 // Critical Views - No lazy loading to prevent dynamic import errors on Android
@@ -214,7 +215,7 @@ function App() {
       const elapsedMinutes = (now - lastSeen) / (1000 * 60)
       if (timerMinutes === 0 || (lastSeen > 0 && elapsedMinutes >= timerMinutes)) {
         clearActivity().then(() => {
-          console.log(`Auto-Wipe triggered (${elapsedMinutes.toFixed(1)}m inactivity).`)
+          logger.info('auto_wipe_triggered', { elapsedMinutes: Number(elapsedMinutes.toFixed(1)) })
         })
       }
     }
@@ -265,7 +266,7 @@ function App() {
         setDroppedFile(file)
         toast.success('File imported successfully!', { id: 'intent-load' })
       } catch (error) {
-        console.error('Intent load error:', error)
+        logger.error('intent_load_failed', { error })
         toast.error('Failed to import file.', { id: 'intent-load' })
       }
     }

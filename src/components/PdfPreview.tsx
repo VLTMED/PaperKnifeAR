@@ -10,6 +10,7 @@ import { toast } from 'sonner'
 import { App } from '@capacitor/app'
 import { loadPdfDocument, renderPageThumbnail, shareFile, unlockPdf } from '../utils/pdfHelpers'
 import { PaperKnifeARLogo } from './Logo'
+import { logger } from '../utils/logger'
 
 interface PdfPreviewProps {
   file: File
@@ -85,7 +86,7 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
         if (err.name === 'PasswordException') {
           setIsLocked(true)
         }
-        console.error('Preview load error:', err)
+        logger.error('pdf_preview_load_failed', { error: err })
       } finally {
         setIsLoading(false)
       }

@@ -1,12 +1,13 @@
 import { Haptics, ImpactStyle, NotificationType } from '@capacitor/haptics';
 import { Capacitor } from '@capacitor/core';
+import { logger } from './logger';
 
 export const hapticImpact = async (style = ImpactStyle.Medium) => {
   if (Capacitor.isNativePlatform() && localStorage.getItem('hapticsEnabled') === 'true') {
     try {
       await Haptics.impact({ style });
     } catch (e) {
-      console.warn('Haptics not supported');
+      logger.warn('haptics_not_supported', { error: e });
     }
   }
 };
@@ -16,7 +17,7 @@ export const hapticSuccess = async () => {
     try {
       await Haptics.notification({ type: NotificationType.Success });
     } catch (e) {
-      console.warn('Haptics not supported');
+      logger.warn('haptics_not_supported', { error: e });
     }
   }
 };
@@ -26,7 +27,7 @@ export const hapticSelection = async () => {
     try {
       await Haptics.selectionStart();
     } catch (e) {
-      console.warn('Haptics not supported');
+      logger.warn('haptics_not_supported', { error: e });
     }
   }
 };

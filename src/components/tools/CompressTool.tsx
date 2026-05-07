@@ -10,6 +10,7 @@ import { usePipeline } from '../../utils/pipelineContext'
 import { useObjectURL } from '../../utils/useObjectURL'
 import SuccessState from './shared/SuccessState'
 import PrivacyBadge from './shared/PrivacyBadge'
+import { logger } from '../../utils/logger'
 import { NativeToolLayout } from './shared/NativeToolLayout'
 
 // Compare Slider Component (Optimized)
@@ -27,7 +28,7 @@ const QualityCompare = ({ originalBuffer, compressedBuffer }: { originalBuffer: 
         const t1 = await renderPageThumbnail(origPdf, 1, 2.0)
         const t2 = await renderPageThumbnail(compPdf, 1, 2.0)
         setOriginalThumb(t1); setCompressedThumb(t2)
-      } catch (e) { console.error(e) }
+      } catch (e) { logger.error('compress_unlock_failed', { error: e }) }
     }
     loadThumbs()
   }, [originalBuffer, compressedBuffer])

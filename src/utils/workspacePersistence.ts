@@ -4,6 +4,8 @@
  * This allows "Privacy Vault" feature: recovering work after refresh.
  */
 
+import { logger } from './logger';
+
 const DB_NAME = 'PaperKnifeARWorkspace';
 const DB_VERSION = 1;
 const STORE_NAME = 'workspaces';
@@ -48,7 +50,7 @@ export const saveWorkspace = async (toolId: string, files: { name: string, buffe
       tx.onerror = () => reject(tx.error);
     });
   } catch (e) {
-    console.error('Save Workspace Error:', e);
+    logger.error('workspace_save_failed', { error: e });
   }
 };
 
@@ -63,7 +65,7 @@ export const getWorkspace = async (toolId: string): Promise<WorkspaceData | null
       request.onerror = () => reject(request.error);
     });
   } catch (e) {
-    console.error('Get Workspace Error:', e);
+    logger.error('workspace_get_failed', { error: e });
     return null;
   }
 };
@@ -75,6 +77,6 @@ export const clearWorkspace = async (toolId: string) => {
     const store = tx.objectStore(STORE_NAME);
     store.delete(toolId);
   } catch (e) {
-    console.error('Clear Workspace Error:', e);
+    logger.error('workspace_clear_failed', { error: e });
   }
 };

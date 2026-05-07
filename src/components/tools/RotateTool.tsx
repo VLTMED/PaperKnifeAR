@@ -9,6 +9,7 @@ import { usePipeline } from '../../utils/pipelineContext'
 import SuccessState from './shared/SuccessState'
 import PrivacyBadge from './shared/PrivacyBadge'
 import { NativeToolLayout } from './shared/NativeToolLayout'
+import { logger } from '../../utils/logger'
 
 type RotatePdfData = { file: File, pageCount: number, isLocked: boolean, pdfDoc?: any, password?: string, thumbnail?: string }
 
@@ -66,7 +67,7 @@ export default function RotateTool() {
         setPdfData({ file, pageCount: meta.pageCount, isLocked: false, pdfDoc, thumbnail: meta.thumbnail })
         setCustomFileName(`${file.name.replace('.pdf', '')}-rotated`); setRotations({})
       }
-    } catch (err) { console.error(err) } finally { setIsProcessing(false); setDownloadUrl(null) }
+    } catch (err) { logger.error('rotate_failed', { error: err }) } finally { setIsProcessing(false); setDownloadUrl(null) }
   }
 
   const rotatePage = (pageNum: number) => { setRotations(prev => ({ ...prev, [pageNum]: ((prev[pageNum] || 0) + 90) % 360 })); setDownloadUrl(null) }

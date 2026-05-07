@@ -12,6 +12,7 @@ import { useObjectURL } from '../../utils/useObjectURL'
 import SuccessState from './shared/SuccessState'
 import PrivacyBadge from './shared/PrivacyBadge'
 import { NativeToolLayout } from './shared/NativeToolLayout'
+import { logger } from '../../utils/logger'
 
 type ProtectPdfFile = {
   file: File
@@ -86,7 +87,7 @@ export default function ProtectTool() {
       const url = createUrl(blob)
       addActivity({ name: `${customFileName || 'protected'}.pdf`, tool: 'Protect', size: blob.size, resultUrl: url })
     } catch (error: any) { 
-      console.error('Encryption error:', error)
+      logger.error('protect_encryption_failed', { error })
       toast.error(`Encryption failed: ${error.message}`) 
     } finally { 
       setIsProcessing(false) 
