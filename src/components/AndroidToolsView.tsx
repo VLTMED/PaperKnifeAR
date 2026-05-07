@@ -14,7 +14,7 @@ const categoryNames: Record<ToolCategory, string> = {
   Optimize: 'تحسين'
 }
 
-const pathToKey: Record<string, { title: string; desc: string }> = {
+export const pathToKey: Record<string, { title: string; desc: string }> = {
   '/merge': { title: t('tool.merge.title', 'ar'), desc: t('tool.merge.desc', 'ar') },
   '/split': { title: t('tool.split.title', 'ar'), desc: t('tool.split.desc', 'ar') },
   '/compress': { title: t('tool.compress.title', 'ar'), desc: t('tool.compress.desc', 'ar') },

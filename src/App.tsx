@@ -28,7 +28,7 @@ import ScrollToTop from './components/ScrollToTop'
 // Critical Views - No lazy loading to prevent dynamic import errors on Android
 import WebView from './components/WebView'
 import AndroidView from './components/AndroidView'
-import AndroidToolsView from './components/AndroidToolsView'
+import AndroidToolsView, { pathToKey } from './components/AndroidToolsView'
 import AndroidHistoryView from './components/AndroidHistoryView'
 import About from './components/About'
 import Thanks from './components/Thanks'
@@ -145,7 +145,7 @@ function QuickDropModal({ file, onClear, onBack }: { file: File, onClear: () => 
                      <div className={`p-2 rounded-xl ${tool.bg} ${tool.color} group-active:scale-110 transition-transform`}>
                        <tool.icon size={18} strokeWidth={2.5} />
                      </div>
-                     <span className="text-xs font-bold text-gray-900 dark:text-zinc-200">{tool.title}</span>
+                     <span className="text-xs font-bold text-gray-900 dark:text-zinc-200">{(tool.path && pathToKey[tool.path]?.title) || tool.title}</span>
                    </button>
                  ))}
               </div>
@@ -171,7 +171,7 @@ function QuickDropModal({ file, onClear, onBack }: { file: File, onClear: () => 
                        <div className={`p-2 rounded-xl ${tool.bg} ${tool.color} group-active:scale-110 transition-transform`}>
                          <tool.icon size={18} strokeWidth={2.5} />
                        </div>
-                       <span className="text-xs font-bold text-gray-900 dark:text-zinc-200">{tool.title}</span>
+                       <span className="text-xs font-bold text-gray-900 dark:text-zinc-200">{(tool.path && pathToKey[tool.path]?.title) || tool.title}</span>
                      </button>
                    ))}
                 </div>
