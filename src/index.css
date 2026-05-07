@@ -128,7 +128,7 @@
 }
 
 html, body {
-  @apply bg-[#FAFAFA] dark:bg-black;
+  @apply bg-obsidian-50 dark:bg-obsidian-950;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -140,7 +140,7 @@ body {
   font-feature-settings: "salt" 1, "calt" 1, "kern" 1, "liga" 1, "cswh" 1;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  @apply text-gray-900 dark:text-zinc-100 bg-[#FAFAFA] dark:bg-black transition-colors duration-500 ease-in-out;
+  @apply text-obsidian-950 dark:text-obsidian-100 bg-obsidian-50 dark:bg-obsidian-950 transition-colors duration-500 ease-in-out;
   overflow-x: hidden;
 }
 
@@ -194,5 +194,5 @@ header, footer, nav, aside, main, section, div, button, input, select {
    ───────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { @apply bg-transparent; }
-::-webkit-scrollbar-thumb { @apply bg-gray-200 dark:bg-zinc-800 rounded-full; }
-::-webkit-scrollbar-thumb:hover { @apply bg-gray-300 dark:bg-zinc-700; }
+::-webkit-scrollbar-thumb { @apply bg-obsidian-200 dark:bg-obsidian-800 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-obsidian-300 dark:bg-obsidian-700; }

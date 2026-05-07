@@ -39,7 +39,7 @@ export default function AndroidToolsView({ tools }: { tools: Tool[] }) {
   const [searchQuery, setSearchQuery] = useState('')
 
   const categoryColors: Record<ToolCategory, { bg: string, text: string, icon: string, border: string }> = {
-    Edit: { bg: 'bg-rose-50 dark:bg-rose-900/10', text: 'text-rose-600 dark:text-rose-400', icon: 'text-rose-500', border: 'border-rose-100/50 dark:border-rose-900/20' },
+    Edit: { bg: 'bg-ember-50 dark:bg-ember-900/10', text: 'text-ember-600 dark:text-ember-400', icon: 'text-ember-500', border: 'border-ember-100/50 dark:border-ember-900/20' },
     Secure: { bg: 'bg-indigo-50 dark:bg-indigo-900/10', text: 'text-indigo-600 dark:text-indigo-400', icon: 'text-indigo-500', border: 'border-indigo-100/50 dark:border-indigo-900/20' },
     Convert: { bg: 'bg-emerald-50 dark:bg-emerald-900/10', text: 'text-emerald-600 dark:text-emerald-400', icon: 'text-emerald-500', border: 'border-emerald-100/50 dark:border-emerald-900/20' },
     Optimize: { bg: 'bg-amber-50 dark:bg-amber-900/10', text: 'text-amber-600 dark:text-amber-400', icon: 'text-amber-500', border: 'border-amber-100/50 dark:border-amber-900/20' }
@@ -74,12 +74,12 @@ export default function AndroidToolsView({ tools }: { tools: Tool[] }) {
   }, [filteredTools])
 
   return (
-    <div dir="rtl" className="min-h-screen bg-[#FAFAFA] dark:bg-black pb-32 transition-colors">
+    <div dir="rtl" className="min-h-screen bg-[#FAFAFA] dark:bg-obsidian-950 pb-32 transition-colors">
       <header className="px-6 pt-[calc(env(safe-area-inset-top)+0.75rem)] pb-6">
         <h1 className="text-4xl font-black tracking-tighter dark:text-white mb-8 text-right">جميع الأدوات</h1>
         
         <div className="relative group">
-          <div className="absolute inset-y-0 right-5 flex items-center pointer-events-none text-gray-500">
+          <div className="absolute inset-y-0 right-5 flex items-center pointer-events-none text-obsidian-500">
             <Search size={20} />
           </div>
           <input 
@@ -87,7 +87,7 @@ export default function AndroidToolsView({ tools }: { tools: Tool[] }) {
             placeholder="ابحث عن أداة..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-[#EEE8F4] dark:bg-[#2B2930] border-none rounded-[1.75rem] py-4 pr-14 pl-6 text-base font-bold placeholder:text-gray-400 focus:bg-white dark:focus:bg-[#36343B] ring-2 ring-transparent focus:ring-rose-500/10 transition-all dark:text-white outline-none shadow-sm text-right"
+            className="w-full bg-[#EEE8F4] dark:bg-[#2B2930] border-none rounded-[1.75rem] py-4 pr-14 pl-6 text-base font-bold placeholder:text-obsidian-500 focus:bg-obsidian-50 dark:focus:bg-[#36343B] ring-2 ring-transparent focus:ring-ember-500/10 transition-all dark:text-white outline-none shadow-sm text-right"
             dir="rtl"
           />
         </div>
@@ -107,12 +107,12 @@ export default function AndroidToolsView({ tools }: { tools: Tool[] }) {
                   <button
                     key={i}
                     onClick={() => tool.implemented && tool.path && navigate(tool.path)}
-                    className="flex items-center gap-4 p-4 bg-white dark:bg-zinc-900 rounded-2xl border border-gray-100 dark:border-zinc-800 active:bg-gray-50 dark:active:bg-black transition-all shadow-sm"
+                    className="flex items-center gap-4 p-4 bg-obsidian-50 dark:bg-obsidian-900 rounded-2xl border border-obsidian-200 dark:border-obsidian-800 active:bg-obsidian-100 dark:active:bg-obsidian-950 transition-all shadow-sm"
                   >
-                    <ChevronLeft size={18} className="text-gray-300 shrink-0" />
+                    <ChevronLeft size={18} className="text-obsidian-400 shrink-0" />
                     <div className="flex-1 min-w-0 text-right">
                       <h4 className="font-bold text-sm dark:text-white truncate">{getArabicTitle(tool)}</h4>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 truncate">{getArabicDesc(tool)}</p>
+                      <p className="text-xs text-obsidian-500 dark:text-obsidian-500 truncate">{getArabicDesc(tool)}</p>
                     </div>
                     <div className={`w-12 h-12 ${colors.bg} ${colors.icon} rounded-xl flex items-center justify-center shrink-0`}>
                       <Icon size={24} strokeWidth={1.5} />
@@ -126,7 +126,7 @@ export default function AndroidToolsView({ tools }: { tools: Tool[] }) {
       </main>
 
       <footer className="text-center py-12 opacity-20">
-         <PaperKnifeLogo size={24} iconColor="#F43F5E" partColor="currentColor" className="mx-auto mb-4" />
+         <PaperKnifeLogo size={24} iconColor="#D4891A" partColor="currentColor" className="mx-auto mb-4" />
          <p className="text-[9px] font-black uppercase tracking-[0.5em]">PaperKnife الإصدار 1.0.9</p>
       </footer>
     </div>

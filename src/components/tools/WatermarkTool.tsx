@@ -103,7 +103,7 @@ export default function WatermarkTool() {
   }
 
   const ActionButton = () => (
-    <button onClick={applyWatermark} disabled={isProcessing || !text} className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl flex items-center justify-center gap-3 shadow-lg shadow-rose-500/20`}>
+    <button onClick={applyWatermark} disabled={isProcessing || !text} className={`w-full bg-ember-500 hover:bg-ember-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl flex items-center justify-center gap-3 shadow-lg shadow-ember-500/20`}>
       {isProcessing ? <Loader2 className="animate-spin" /> : <Type size={20} />} تطبيق العلامة المائية
     </button>
   )
@@ -113,32 +113,32 @@ export default function WatermarkTool() {
       <input type="file" accept=".pdf" className="hidden" ref={fileInputRef} onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])} />
       
       {!pdfData ? (
-        <div onClick={() => !isProcessing && fileInputRef.current?.click()} className="border-4 border-dashed border-gray-100 dark:border-zinc-900 rounded-[2.5rem] p-12 text-center hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all cursor-pointer group">
-          <div className="w-20 h-20 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"><Type size={32} /></div>
+        <div onClick={() => !isProcessing && fileInputRef.current?.click()} className="border-4 border-dashed border-obsidian-200 dark:border-obsidian-900 rounded-[2.5rem] p-12 text-center hover:bg-ember-50 dark:hover:bg-ember-900/10 transition-all cursor-pointer group">
+          <div className="w-20 h-20 bg-ember-50 dark:bg-ember-900/20 text-ember-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"><Type size={32} /></div>
           <h3 className="text-xl font-bold dark:text-white mb-2">اختر ملف PDF</h3>
-          <p className="text-sm text-gray-400">اضغط لإضافة علامة مائية</p>
+          <p className="text-sm text-obsidian-500">اضغط لإضافة علامة مائية</p>
         </div>
       ) : pdfData.isLocked ? (
         <div className="max-w-md mx-auto relative z-[100]">
-          <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-white/5 text-center shadow-2xl">
-            <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900/30 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6"><Lock size={32} /></div>
-            <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="كلمة المرور" className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-4 border border-transparent focus:border-rose-500 outline-none font-bold text-center mb-4 dark:text-white" />
-            <button onClick={handleUnlock} disabled={!unlockPassword || isProcessing} className="w-full bg-rose-500 text-white p-4 rounded-2xl font-black uppercase text-xs">فتح القفل</button>
+          <div className="bg-obsidian-50 dark:bg-obsidian-900 p-8 rounded-[2.5rem] border border-obsidian-200 dark:border-white/5 text-center shadow-2xl">
+            <div className="w-16 h-16 bg-ember-100 dark:bg-ember-900/30 text-ember-500 rounded-full flex items-center justify-center mx-auto mb-6"><Lock size={32} /></div>
+            <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="كلمة المرور" className="w-full bg-obsidian-100 dark:bg-obsidian-950 rounded-xl px-4 py-4 border border-transparent focus:border-ember-500 outline-none font-bold text-center mb-4 dark:text-white" />
+            <button onClick={handleUnlock} disabled={!unlockPassword || isProcessing} className="w-full bg-ember-500 text-white p-4 rounded-2xl font-black uppercase text-xs">فتح القفل</button>
           </div>
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in fade-in duration-500">
           <div className="lg:col-span-2 space-y-6">
             {/* Live Preview */}
-            <div className="bg-white dark:bg-zinc-900 p-6 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden flex flex-col items-center">
+            <div className="bg-obsidian-50 dark:bg-obsidian-900 p-6 rounded-[2rem] border border-obsidian-200 dark:border-white/5 shadow-sm overflow-hidden flex flex-col items-center">
                <div className="flex justify-between items-center w-full mb-4 px-2">
-                  <h4 className="text-[10px] font-black uppercase tracking-widest text-gray-400 flex items-center gap-2"><Eye size={12}/> معاينة مباشرة</h4>
+                  <h4 className="text-[10px] font-black uppercase tracking-widest text-obsidian-500 flex items-center gap-2"><Eye size={12}/> معاينة مباشرة</h4>
                </div>
-               <div className="relative aspect-[3/4] w-full max-w-[300px] bg-white border border-gray-100 dark:border-zinc-800 rounded-xl overflow-hidden shadow-inner">
+               <div className="relative aspect-[3/4] w-full max-w-[300px] bg-obsidian-50 border border-obsidian-200 dark:border-obsidian-800 rounded-xl overflow-hidden shadow-inner">
                   {pdfData.thumbnail ? (
                     <img src={pdfData.thumbnail} className="w-full h-full object-contain opacity-50" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-100"><Type size={64} /></div>
+                    <div className="w-full h-full flex items-center justify-center text-obsidian-100"><Type size={64} /></div>
                   )}
                   <div 
                     className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
@@ -159,29 +159,29 @@ export default function WatermarkTool() {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm space-y-6">
+            <div className="bg-obsidian-50 dark:bg-obsidian-900 p-8 rounded-[2rem] border border-obsidian-200 dark:border-white/5 shadow-sm space-y-6">
               {!downloadUrl ? (
                 <>
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-gray-400 mb-3">نص العلامة المائية</label>
-                    <input type="text" value={text} onChange={(e) => setText(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" />
+                    <label className="block text-[10px] font-black uppercase text-obsidian-500 mb-3">نص العلامة المائية</label>
+                    <input type="text" value={text} onChange={(e) => setText(e.target.value)} className="w-full bg-obsidian-100 dark:bg-obsidian-950 rounded-xl px-4 py-3 border border-transparent focus:border-ember-500 outline-none font-bold text-sm dark:text-white" />
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                       <label className="text-[10px] font-black uppercase text-gray-400">المظهر</label>
-                       <Palette size={14} className="text-gray-300" />
+                       <label className="text-[10px] font-black uppercase text-obsidian-500">المظهر</label>
+                       <Palette size={14} className="text-obsidian-400" />
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
                        <div className="col-span-2">
-                          <label className="block text-[8px] font-black uppercase text-gray-400 mb-2">اللون</label>
+                          <label className="block text-[8px] font-black uppercase text-obsidian-500 mb-2">اللون</label>
                           <div className="flex gap-2 flex-wrap">
-                             {['#F43F5E', '#3B82F6', '#10B981', '#F59E0B', '#000000'].map(c => (
+                             {['#D4891A', '#3B82F6', '#10B981', '#F59E0B', '#000000'].map(c => (
                                <button 
                                  key={c} 
                                  onClick={() => setColor(c)}
-                                 className={`w-8 h-8 rounded-full border-2 transition-all ${color === c ? 'border-zinc-900 dark:border-white scale-110' : 'border-transparent'}`}
+                                 className={`w-8 h-8 rounded-full border-2 transition-all ${color === c ? 'border-obsidian-900 dark:border-white scale-110' : 'border-transparent'}`}
                                  style={{ backgroundColor: c }}
                                />
                              ))}
@@ -190,29 +190,29 @@ export default function WatermarkTool() {
                        </div>
                        
                        <div>
-                          <label className="block text-[8px] font-black uppercase text-gray-400 mb-2">الشفافية ({Math.round(opacity * 100)}%)</label>
-                          <input type="range" min="0.1" max="1" step="0.1" value={opacity} onChange={(e) => setOpacity(parseFloat(e.target.value))} className="w-full accent-rose-500" />
+                          <label className="block text-[8px] font-black uppercase text-obsidian-500 mb-2">الشفافية ({Math.round(opacity * 100)}%)</label>
+                          <input type="range" min="0.1" max="1" step="0.1" value={opacity} onChange={(e) => setOpacity(parseFloat(e.target.value))} className="w-full accent-ember-500" />
                        </div>
                        <div>
-                          <label className="block text-[8px] font-black uppercase text-gray-400 mb-2">الحجم ({fontSize}px)</label>
-                          <input type="range" min="10" max="200" step="1" value={fontSize} onChange={(e) => setFontSize(parseInt(e.target.value))} className="w-full accent-rose-500" />
+                          <label className="block text-[8px] font-black uppercase text-obsidian-500 mb-2">الحجم ({fontSize}px)</label>
+                          <input type="range" min="10" max="200" step="1" value={fontSize} onChange={(e) => setFontSize(parseInt(e.target.value))} className="w-full accent-ember-500" />
                        </div>
                        <div>
-                          <label className="block text-[8px] font-black uppercase text-gray-400 mb-2">الدوران ({rotation}°)</label>
-                          <input type="range" min="-180" max="180" step="5" value={rotation} onChange={(e) => setRotation(parseInt(e.target.value))} className="w-full accent-rose-500" />
+                          <label className="block text-[8px] font-black uppercase text-obsidian-500 mb-2">الدوران ({rotation}°)</label>
+                          <input type="range" min="-180" max="180" step="5" value={rotation} onChange={(e) => setRotation(parseInt(e.target.value))} className="w-full accent-ember-500" />
                        </div>
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-black uppercase text-gray-400 mb-3">اسم الملف الناتج</label>
-                    <input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" />
+                    <label className="block text-[10px] font-black uppercase text-obsidian-500 mb-3">اسم الملف الناتج</label>
+                    <input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-obsidian-100 dark:bg-obsidian-950 rounded-xl px-4 py-3 border border-transparent focus:border-ember-500 outline-none font-bold text-sm dark:text-white" />
                   </div>
                 </>
               ) : (
                 <SuccessState message="تم تطبيق العلامة المائية بنجاح!" downloadUrl={downloadUrl} fileName={`${customFileName}.pdf`} onStartOver={() => setDownloadUrl(null)} />
               )}
-              <button onClick={() => setPdfData(null)} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">إغلاق الملف</button>
+              <button onClick={() => setPdfData(null)} className="w-full py-2 text-[10px] font-black uppercase text-obsidian-400 hover:text-ember-500 transition-colors">إغلاق الملف</button>
             </div>
           </div>
         </div>

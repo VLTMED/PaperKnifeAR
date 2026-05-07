@@ -110,7 +110,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
           {showPreview && (
             <button 
               onClick={handlePreview}
-              className="flex-1 bg-white dark:bg-zinc-900 text-gray-900 dark:text-white border border-gray-200 dark:border-zinc-800 p-4 rounded-2xl md:rounded-3xl shadow-sm font-black text-sm md:text-xl tracking-tight transition-all hover:bg-gray-50 active:scale-95 flex items-center justify-center gap-2"
+              className="flex-1 bg-obsidian-50 dark:bg-obsidian-900 text-obsidian-950 dark:text-white border border-obsidian-200 dark:border-obsidian-800 p-4 rounded-2xl md:rounded-3xl shadow-sm font-black text-sm md:text-xl tracking-tight transition-all hover:bg-obsidian-100 active:scale-95 flex items-center justify-center gap-2"
             >
               <Eye size={20} /> معاينة
             </button>
@@ -118,7 +118,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
           
           <button 
             onClick={handleShare}
-            className="flex-1 bg-rose-50 dark:bg-rose-900/20 text-rose-500 border border-rose-100 dark:border-rose-900/30 p-4 rounded-2xl md:rounded-3xl shadow-sm font-black text-sm md:text-xl tracking-tight transition-all active:scale-95 flex items-center justify-center gap-2"
+            className="flex-1 bg-ember-50 dark:bg-ember-900/20 text-ember-500 border border-ember-100 dark:border-ember-900/30 p-4 rounded-2xl md:rounded-3xl shadow-sm font-black text-sm md:text-xl tracking-tight transition-all active:scale-95 flex items-center justify-center gap-2"
           >
             <Share2 size={20} /> مشاركة
           </button>
@@ -126,7 +126,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
         
         <button 
           onClick={handleDownload}
-          className="w-full bg-gray-900 dark:bg-white text-white dark:text-black p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl font-black text-lg md:text-xl tracking-tight transition-all hover:scale-[1.01] active:scale-95 flex items-center justify-center gap-3"
+          className="w-full bg-obsidian-950 dark:bg-obsidian-50 text-white dark:text-obsidian-950 p-4 md:p-6 rounded-2xl md:rounded-3xl shadow-xl font-black text-lg md:text-xl tracking-tight transition-all hover:scale-[1.01] active:scale-95 flex items-center justify-center gap-3"
         >
           <Download size={24} /> {isNative ? 'حفظ على الجهاز' : 'تحميل'}
         </button>
@@ -134,7 +134,7 @@ export default function SuccessState({ message, downloadUrl, fileName, onStartOv
 
       <button 
         onClick={onStartOver}
-        className="w-full mt-6 py-4 bg-gray-50 dark:bg-zinc-900 text-gray-400 hover:text-rose-500 dark:hover:text-rose-500 rounded-2xl border border-gray-100 dark:border-white/5 font-black text-[10px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-sm"
+        className="w-full mt-6 py-4 bg-obsidian-100 dark:bg-obsidian-900 text-obsidian-500 hover:text-ember-500 dark:hover:text-ember-500 rounded-2xl border border-obsidian-200 dark:border-white/5 font-black text-[10px] uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-sm"
       >
         <RotateCcw size={14} /> جلسة جديدة
       </button>

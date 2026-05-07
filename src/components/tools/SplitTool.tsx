@@ -39,8 +39,8 @@ const LazyThumbnail = ({ pdfDoc, pageNum }: { pdfDoc: any, pageNum: number }) =>
 
   if (src) return <img src={src} className="w-full h-full object-cover animate-in fade-in duration-300" alt={`Page ${pageNum}`} />
   return (
-    <div ref={imgRef} className="w-full h-full bg-gray-50 dark:bg-zinc-900 flex items-center justify-center text-xs font-bold text-gray-400">
-      <div className="w-4 h-4 border-2 border-gray-300 border-t-transparent dark:border-zinc-700 rounded-full animate-spin" />
+    <div ref={imgRef} className="w-full h-full bg-obsidian-100 dark:bg-obsidian-900 flex items-center justify-center text-xs font-bold text-obsidian-500">
+      <div className="w-4 h-4 border-2 border-obsidian-300 border-t-transparent dark:border-obsidian-700 rounded-full animate-spin" />
     </div>
   )
 }
@@ -166,7 +166,7 @@ export default function SplitTool() {
     <button 
       onClick={splitPDF}
       disabled={isProcessing || selectedPages.size === 0}
-      className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl flex items-center justify-center gap-3 shadow-lg shadow-rose-500/20`}
+      className={`w-full bg-ember-500 hover:bg-ember-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl flex items-center justify-center gap-3 shadow-lg shadow-ember-500/20`}
     >
       {isProcessing ? <><Loader2 className="animate-spin" /> جارٍ المعالجة...</> : <>استخراج {selectedPages.size} صفحة <ArrowRight size={18} /></>}
     </button>
@@ -183,27 +183,27 @@ export default function SplitTool() {
       {!pdfData ? (
         <button 
           onClick={() => !isLoadingMeta && fileInputRef.current?.click()} 
-          className={`w-full border-4 border-dashed border-gray-100 dark:border-zinc-900 rounded-[2.5rem] p-12 text-center hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all cursor-pointer group ${isLoadingMeta ? 'opacity-50 cursor-wait' : ''}`}
+          className={`w-full border-4 border-dashed border-obsidian-200 dark:border-obsidian-900 rounded-[2.5rem] p-12 text-center hover:bg-ember-50 dark:hover:bg-ember-900/10 transition-all cursor-pointer group ${isLoadingMeta ? 'opacity-50 cursor-wait' : ''}`}
         >
           {isLoadingMeta ? (
             <div className="flex flex-col items-center">
-              <Loader2 size={48} className="text-rose-500 animate-spin mb-4" />
+              <Loader2 size={48} className="text-ember-500 animate-spin mb-4" />
               <h3 className="text-xl font-bold mb-2">تحليل الملف...</h3>
             </div>
           ) : (
             <>
-              <div className="w-20 h-20 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+              <div className="w-20 h-20 bg-ember-50 dark:bg-ember-900/20 text-ember-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
                 <Scissors size={32} />
               </div>
               <h3 className="text-xl font-bold dark:text-white mb-2">اختر ملف PDF</h3>
-              <p className="text-sm text-gray-400 font-medium">اضغط للبدء</p>
+              <p className="text-sm text-obsidian-500 font-medium">اضغط للبدء</p>
             </>
           )}
         </button>
       ) : pdfData.isLocked ? (
         <div className="max-w-md mx-auto relative z-[100]">
-          <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-white/5 shadow-2xl text-center">
-            <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900/30 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="bg-obsidian-50 dark:bg-obsidian-900 p-8 rounded-[2.5rem] border border-obsidian-200 dark:border-white/5 shadow-2xl text-center">
+            <div className="w-16 h-16 bg-ember-100 dark:bg-ember-900/30 text-ember-500 rounded-full flex items-center justify-center mx-auto mb-6">
               <Lock size={32} />
             </div>
             <h3 className="text-2xl font-bold mb-2 dark:text-white">ملف محمي</h3>
@@ -212,13 +212,13 @@ export default function SplitTool() {
               value={unlockPassword}
               onChange={(e) => setUnlockPassword(e.target.value)}
               placeholder="أدخل كلمة المرور"
-              className="w-full bg-gray-50 dark:bg-black rounded-2xl px-6 py-4 border border-transparent focus:border-rose-500 outline-none font-bold text-center mb-4 dark:text-white"
+              className="w-full bg-obsidian-100 dark:bg-obsidian-950 rounded-2xl px-6 py-4 border border-transparent focus:border-ember-500 outline-none font-bold text-center mb-4 dark:text-white"
               autoFocus
             />
             <button 
               onClick={handleUnlock}
               disabled={!unlockPassword || isLoadingMeta}
-              className="w-full bg-rose-500 text-white p-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all active:scale-95 disabled:opacity-50"
+              className="w-full bg-ember-500 text-white p-4 rounded-2xl font-black uppercase tracking-widest text-xs transition-all active:scale-95 disabled:opacity-50"
             >
               فتح الملف
             </button>
@@ -226,13 +226,13 @@ export default function SplitTool() {
         </div>
       ) : (
         <div className="space-y-6">
-          <div className="bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-100 dark:border-white/5 flex items-center gap-6 shadow-sm">
-            <div className="w-12 h-16 bg-gray-50 dark:bg-black rounded-xl overflow-hidden shrink-0 border border-gray-100 dark:border-zinc-800 flex items-center justify-center text-rose-500 shadow-inner">{pdfData.thumbnail ? <img src={pdfData.thumbnail} className="w-full h-full object-cover" /> : <Scissors size={24} />}</div>
+          <div className="bg-obsidian-50 dark:bg-obsidian-900 p-6 rounded-3xl border border-obsidian-200 dark:border-white/5 flex items-center gap-6 shadow-sm">
+            <div className="w-12 h-16 bg-obsidian-100 dark:bg-obsidian-950 rounded-xl overflow-hidden shrink-0 border border-obsidian-200 dark:border-obsidian-800 flex items-center justify-center text-ember-500 shadow-inner">{pdfData.thumbnail ? <img src={pdfData.thumbnail} className="w-full h-full object-cover" /> : <Scissors size={24} />}</div>
             <div className="flex-1 min-w-0 text-left">
               <h3 className="font-bold text-sm truncate dark:text-white">{pdfData.file.name}</h3>
-              <p className="text-[10px] text-gray-400 uppercase font-black">{pdfData.pageCount} Pages • {(pdfData.file.size / (1024*1024)).toFixed(1)} MB</p>
+              <p className="text-[10px] text-obsidian-500 uppercase font-black">{pdfData.pageCount} Pages • {(pdfData.file.size / (1024*1024)).toFixed(1)} MB</p>
             </div>
-            <button onClick={() => setPdfData(null)} className="p-2 text-gray-400 hover:text-rose-500 transition-colors"><X size={20} /></button>
+            <button onClick={() => setPdfData(null)} className="p-2 text-obsidian-500 hover:text-ember-500 transition-colors"><X size={20} /></button>
           </div>
 
           {pdfData.pageCount > 50 && (
@@ -249,26 +249,26 @@ export default function SplitTool() {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in fade-in duration-500">
             <div className="lg:col-span-2 space-y-6">
-              <div className="bg-white dark:bg-zinc-900 p-6 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm">
+              <div className="bg-obsidian-50 dark:bg-obsidian-900 p-6 rounded-[2rem] border border-obsidian-200 dark:border-white/5 shadow-sm">
                 <div className="flex justify-between items-center mb-6">
-                  <h4 className="font-black uppercase tracking-widest text-[10px] text-gray-400 px-2">اختيار الصفحات</h4>
+                  <h4 className="font-black uppercase tracking-widest text-[10px] text-obsidian-500 px-2">اختيار الصفحات</h4>
                   <div className="flex gap-2">
-                    <button onClick={() => { const all = new Set<number>(); for(let i=1;i<=pdfData.pageCount;i++) all.add(i); setSelectedPages(all); }} className="text-[10px] font-black uppercase text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 px-2 py-1 rounded-lg transition-colors">الكل</button>
-                    <button onClick={() => setSelectedPages(new Set())} className="text-[10px] font-black uppercase text-gray-400 px-2 py-1 hover:bg-gray-50 dark:hover:bg-white/5 rounded-lg transition-colors">مسح</button>
+                    <button onClick={() => { const all = new Set<number>(); for(let i=1;i<=pdfData.pageCount;i++) all.add(i); setSelectedPages(all); }} className="text-[10px] font-black uppercase text-ember-500 hover:bg-ember-50 dark:hover:bg-ember-900/20 px-2 py-1 rounded-lg transition-colors">الكل</button>
+                    <button onClick={() => setSelectedPages(new Set())} className="text-[10px] font-black uppercase text-obsidian-500 px-2 py-1 hover:bg-obsidian-100 dark:hover:bg-obsidian-50/5 rounded-lg transition-colors">مسح</button>
                   </div>
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[60vh] overflow-y-auto p-1 scrollbar-hide">
                   {Array.from({ length: pdfData.pageCount }).map((_, i) => {
                     const pageNum = i + 1; const isSelected = selectedPages.has(pageNum)
                     return (
-                      <div key={pageNum} onClick={() => togglePage(pageNum)} className={`relative group cursor-pointer aspect-[3/4] rounded-xl overflow-hidden border-2 transition-all ${isSelected ? 'border-rose-500 shadow-md scale-[1.02]' : 'border-transparent hover:border-gray-200 dark:hover:border-zinc-800'}`}>
+                      <div key={pageNum} onClick={() => togglePage(pageNum)} className={`relative group cursor-pointer aspect-[3/4] rounded-xl overflow-hidden border-2 transition-all ${isSelected ? 'border-ember-500 shadow-md scale-[1.02]' : 'border-transparent hover:border-obsidian-200 dark:hover:border-obsidian-800'}`}>
                         <LazyThumbnail pdfDoc={pdfData.pdfDoc} pageNum={pageNum} />
-                        <div className={`absolute inset-0 flex items-center justify-center transition-opacity ${isSelected ? 'bg-rose-500/10 opacity-100' : 'bg-black/20 opacity-0 group-hover:opacity-100'}`}>
-                           <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg transition-transform ${isSelected ? 'bg-rose-500 text-white scale-100' : 'bg-white text-gray-400 scale-75'}`}>
+                        <div className={`absolute inset-0 flex items-center justify-center transition-opacity ${isSelected ? 'bg-ember-500/10 opacity-100' : 'bg-obsidian-950/20 opacity-0 group-hover:opacity-100'}`}>
+                           <div className={`w-8 h-8 rounded-full flex items-center justify-center shadow-lg transition-transform ${isSelected ? 'bg-ember-500 text-white scale-100' : 'bg-obsidian-50 text-obsidian-500 scale-75'}`}>
                               {isSelected ? <Check size={20} strokeWidth={3} /> : <Plus size={20} />}
                            </div>
                         </div>
-                        <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[9px] font-black text-white">ص {pageNum}</div>
+                        <div className="absolute bottom-2 left-2 px-2 py-1 bg-obsidian-950/50 backdrop-blur-md rounded text-[9px] font-black text-white">ص {pageNum}</div>
                       </div>
                     )
                   })}
@@ -277,37 +277,37 @@ export default function SplitTool() {
             </div>
 
             <div className="space-y-6">
-              <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm sticky top-24">
+              <div className="bg-obsidian-50 dark:bg-obsidian-900 p-8 rounded-[2rem] border border-obsidian-200 dark:border-white/5 shadow-sm sticky top-24">
                 <div className="space-y-6">
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">وضع التقسيم</label>
-                      <div className="grid grid-cols-2 gap-2 bg-gray-50 dark:bg-black p-1 rounded-2xl">
-                        <button onClick={() => { setSplitMode('single'); clearUrls(); }} className={`py-2 px-3 rounded-xl text-[9px] font-black uppercase transition-all ${splitMode === 'single' ? 'bg-white dark:bg-zinc-800 text-rose-500 shadow-sm' : 'text-gray-400'}`}>ملف واحد</button>
-                        <button onClick={() => { setSplitMode('individual'); clearUrls(); }} className={`py-2 px-3 rounded-xl text-[9px] font-black uppercase transition-all ${splitMode === 'individual' ? 'bg-white dark:bg-zinc-800 text-rose-500 shadow-sm' : 'text-gray-400'}`}>ملفات منفصلة</button>
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-obsidian-500 mb-3">وضع التقسيم</label>
+                      <div className="grid grid-cols-2 gap-2 bg-obsidian-100 dark:bg-obsidian-950 p-1 rounded-2xl">
+                        <button onClick={() => { setSplitMode('single'); clearUrls(); }} className={`py-2 px-3 rounded-xl text-[9px] font-black uppercase transition-all ${splitMode === 'single' ? 'bg-obsidian-50 dark:bg-obsidian-800 text-ember-500 shadow-sm' : 'text-obsidian-500'}`}>ملف واحد</button>
+                        <button onClick={() => { setSplitMode('individual'); clearUrls(); }} className={`py-2 px-3 rounded-xl text-[9px] font-black uppercase transition-all ${splitMode === 'individual' ? 'bg-obsidian-50 dark:bg-obsidian-800 text-ember-500 shadow-sm' : 'text-obsidian-500'}`}>ملفات منفصلة</button>
                       </div>
-                      <p className="text-[8px] text-gray-400 mt-2 px-1 leading-relaxed font-bold uppercase tracking-tight">
+                      <p className="text-[8px] text-obsidian-500 mt-2 px-1 leading-relaxed font-bold uppercase tracking-tight">
                         <b>ملف واحد:</b> يدمج الصفحات المختارة في ملف PDF واحد.<br/>
                         <b>ملفات منفصلة:</b> كل صفحة تصبح ملف PDF مستقل (ZIP).
                       </p>
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">اسم الملف</label>
-                      <input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" />
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-obsidian-500 mb-3">اسم الملف</label>
+                      <input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-obsidian-100 dark:bg-obsidian-950 rounded-xl px-4 py-3 border border-transparent focus:border-ember-500 outline-none font-bold text-sm dark:text-white" />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3">نطاق الصفحات</label>
+                      <label className="block text-[10px] font-black uppercase tracking-widest text-obsidian-500 mb-3">نطاق الصفحات</label>
                       <div className="flex gap-2">
-                        <input type="text" value={rangeInput} onChange={(e) => setRangeInput(e.target.value)} placeholder="مثال: 1, 3-5" className="flex-1 bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" />
-                        <button onClick={() => parseRange(rangeInput)} className="px-4 bg-rose-500 text-white rounded-xl font-black text-[10px] uppercase active:scale-95 transition-transform">تطبيق</button>
+                        <input type="text" value={rangeInput} onChange={(e) => setRangeInput(e.target.value)} placeholder="مثال: 1, 3-5" className="flex-1 bg-obsidian-100 dark:bg-obsidian-950 rounded-xl px-4 py-3 border border-transparent focus:border-ember-500 outline-none font-bold text-sm dark:text-white" />
+                        <button onClick={() => parseRange(rangeInput)} className="px-4 bg-ember-500 text-white rounded-xl font-black text-[10px] uppercase active:scale-95 transition-transform">تطبيق</button>
                       </div>
-                      <p className="text-[8px] text-gray-400 mt-2 px-1">استخدم الفاصلة للصفحات المنفصلة والشرطة للنطاقات.</p>
+                      <p className="text-[8px] text-obsidian-500 mt-2 px-1">استخدم الفاصلة للصفحات المنفصلة والشرطة للنطاقات.</p>
                     </div>
                   </div>
-                  <div className="pt-6 border-t border-gray-100 dark:border-white/5">
+                  <div className="pt-6 border-t border-obsidian-200 dark:border-white/5">
                     <div className="flex justify-between items-end mb-4 px-1">
-                      <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">المحدد</span>
-                      <span className="text-xl font-black text-rose-500">{selectedPages.size} <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">صفحة</span></span>
+                      <span className="text-[10px] font-black text-obsidian-500 uppercase tracking-[0.2em]">المحدد</span>
+                      <span className="text-xl font-black text-ember-500">{selectedPages.size} <span className="text-[10px] text-obsidian-500 font-bold uppercase tracking-widest">صفحة</span></span>
                     </div>
                     {objectUrl && (
                       <SuccessState 
@@ -319,7 +319,7 @@ export default function SplitTool() {
                       />
                     )}
                   </div>
-                  <button onClick={() => { setPdfData(null); clearUrls(); }} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">إغلاق الملف</button>
+                  <button onClick={() => { setPdfData(null); clearUrls(); }} className="w-full py-2 text-[10px] font-black uppercase text-obsidian-400 hover:text-ember-500 transition-colors">إغلاق الملف</button>
                 </div>
               </div>
             </div>

@@ -46,7 +46,7 @@ const LazyPage = ({ pdfDoc, pageNum }: { pdfDoc: any, pageNum: number }) => {
       data-page-num={pageNum}
       className="relative flex flex-col items-center justify-center snap-center"
     >
-      <div className="bg-white p-0.5 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.3)] group relative overflow-hidden transition-all duration-500 w-full max-w-[95%] md:max-w-full flex items-center justify-center min-h-[300px]">
+      <div className="bg-obsidian-50 p-0.5 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.3)] group relative overflow-hidden transition-all duration-500 w-full max-w-[95%] md:max-w-full flex items-center justify-center min-h-[300px]">
         {img ? (
           <img 
             src={img} 
@@ -55,7 +55,7 @@ const LazyPage = ({ pdfDoc, pageNum }: { pdfDoc: any, pageNum: number }) => {
           />
         ) : (
           <div className="flex flex-col items-center gap-3 py-20">
-             <Loader2 className="w-6 h-6 text-zinc-800 animate-spin" />
+             <Loader2 className="w-6 h-6 text-obsidian-800 animate-spin" />
           </div>
         )}
       </div>
@@ -140,27 +140,27 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
 
   return createPortal(
     <div 
-      className="fixed inset-0 z-[500] bg-zinc-950 flex flex-col animate-in fade-in duration-300 overflow-hidden overscroll-none"
+      className="fixed inset-0 z-[500] bg-obsidian-950 flex flex-col animate-in fade-in duration-300 overflow-hidden overscroll-none"
     >
       
       {/* Fixed Header - Always Visible */}
-      <header className="fixed top-0 inset-x-0 px-4 pt-[calc(env(safe-area-inset-top)+0.75rem)] pb-4 bg-zinc-900/95 backdrop-blur-xl border-b border-white/5 flex items-center justify-between z-50 shadow-lg" onClick={(e) => e.stopPropagation()}>
+      <header className="fixed top-0 inset-x-0 px-4 pt-[calc(env(safe-area-inset-top)+0.75rem)] pb-4 bg-obsidian-900/95 backdrop-blur-xl border-b border-white/5 flex items-center justify-between z-50 shadow-lg" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center gap-3">
           <button 
             onClick={onClose} 
-            className="w-10 h-10 flex items-center justify-center rounded-full text-zinc-400 active:bg-white/10 active:text-white transition-all"
+            className="w-10 h-10 flex items-center justify-center rounded-full text-obsidian-500 active:bg-obsidian-50/10 active:text-white transition-all"
           >
             <X size={22} strokeWidth={2.5} />
           </button>
           <div className="flex items-center gap-2.5 min-w-0">
-             <div className="w-9 h-9 bg-white rounded-xl flex items-center justify-center shadow-xl shrink-0">
-                <PaperKnifeLogo size={20} iconColor="#F43F5E" partColor="#000000" />
+             <div className="w-9 h-9 bg-obsidian-50 rounded-xl flex items-center justify-center shadow-xl shrink-0">
+                <PaperKnifeLogo size={20} iconColor="#D4891A" partColor="#000000" />
              </div>
              <div className="hidden sm:block min-w-0">
                 <h2 className="text-sm font-black text-white truncate max-w-[140px] leading-tight">{file.name}</h2>
                 <div className="flex items-center gap-1.5 mt-0.5">
                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                   <p className="text-[8px] font-black text-zinc-500 uppercase tracking-widest">Secure View</p>
+                   <p className="text-[8px] font-black text-obsidian-500 uppercase tracking-widest">Secure View</p>
                 </div>
              </div>
           </div>
@@ -172,7 +172,7 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
               e.stopPropagation();
               handleShare();
             }} 
-            className="w-10 h-10 flex items-center justify-center bg-white/5 text-zinc-300 rounded-2xl active:bg-white/10 transition-all border border-white/5"
+            className="w-10 h-10 flex items-center justify-center bg-obsidian-50/5 text-obsidian-300 rounded-2xl active:bg-obsidian-50/10 transition-all border border-white/5"
           >
             <Share2 size={18} strokeWidth={2.5} />
           </button>
@@ -182,7 +182,7 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
               e.stopPropagation();
               onProcess();
             }}
-            className="w-10 h-10 flex items-center justify-center bg-rose-500 text-white rounded-2xl shadow-lg shadow-rose-500/20 active:scale-95 active:bg-rose-600 transition-all border border-rose-400/20"
+            className="w-10 h-10 flex items-center justify-center bg-ember-500 text-white rounded-2xl shadow-lg shadow-ember-500/20 active:scale-95 active:bg-ember-600 transition-all border border-ember-400/20"
           >
             <Plus size={22} strokeWidth={3} />
           </button>
@@ -193,23 +193,23 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
       <main 
         ref={mainRef}
         onScroll={handleScroll}
-        className="flex-1 overflow-y-auto bg-zinc-950 scrollbar-hide overscroll-none"
+        className="flex-1 overflow-y-auto bg-obsidian-950 scrollbar-hide overscroll-none"
       >
         <div className="min-h-full flex flex-col items-center pt-32 pb-40 space-y-12">
           {isLoading && (
             <div className="h-full flex flex-col items-center justify-center gap-4">
-              <Loader2 className="w-10 h-10 text-rose-500 animate-spin" />
-              <p className="text-[10px] font-black text-zinc-600 uppercase tracking-[0.3em]">Decoding Layers...</p>
+              <Loader2 className="w-10 h-10 text-ember-500 animate-spin" />
+              <p className="text-[10px] font-black text-obsidian-600 uppercase tracking-[0.3em]">Decoding Layers...</p>
             </div>
           )}
 
           {isLocked ? (
             <div className="h-full flex flex-col items-center justify-center text-center px-8">
-              <div className="w-20 h-20 bg-rose-500/10 text-rose-500 rounded-[2.5rem] flex items-center justify-center mb-8 shadow-inner border border-rose-500/20">
+              <div className="w-20 h-20 bg-ember-500/10 text-ember-500 rounded-[2.5rem] flex items-center justify-center mb-8 shadow-inner border border-ember-500/20">
                 <Lock size={32} />
               </div>
               <h3 className="text-2xl font-black text-white tracking-tighter mb-3">Layer Protected</h3>
-              <p className="text-sm text-zinc-500 max-w-xs mx-auto leading-relaxed mb-8">This document is encrypted. Enter the password to view the contents.</p>
+              <p className="text-sm text-obsidian-500 max-w-xs mx-auto leading-relaxed mb-8">This document is encrypted. Enter the password to view the contents.</p>
               
               <div className="w-full max-w-xs space-y-3 mb-10">
                  <input 
@@ -218,13 +218,13 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
                    onChange={(e) => setPassword(e.target.value)}
                    onKeyDown={(e) => e.key === 'Enter' && handleUnlock()}
                    placeholder="Enter Password"
-                   className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-white font-bold text-center outline-none focus:border-rose-500 transition-all"
+                   className="w-full bg-obsidian-50/5 border border-white/10 rounded-2xl px-6 py-4 text-white font-bold text-center outline-none focus:border-ember-500 transition-all"
                    autoFocus
                  />
                  <button 
                    onClick={handleUnlock}
                    disabled={!password || isUnlocking}
-                   className="w-full py-4 bg-rose-500 text-white rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+                   className="w-full py-4 bg-ember-500 text-white rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl active:scale-95 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
                  >
                    {isUnlocking ? <Loader2 className="animate-spin" size={16} /> : <Unlock size={16} />} 
                    Unlock Layer
@@ -233,7 +233,7 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
 
               <button 
                 onClick={onProcess} 
-                className="text-zinc-500 font-black uppercase text-[10px] tracking-[0.2em] hover:text-white transition-colors"
+                className="text-obsidian-500 font-black uppercase text-[10px] tracking-[0.2em] hover:text-white transition-colors"
               >
                 Tool Selection
               </button>
@@ -253,13 +253,13 @@ export default function PdfPreview({ file, onClose, onProcess }: PdfPreviewProps
       </main>
 
       {/* Fixed Status Bar - Always Visible */}
-      <footer className="fixed bottom-0 inset-x-0 px-6 py-4 bg-zinc-900/95 backdrop-blur-xl border-t border-white/5 flex items-center justify-between text-[9px] font-black uppercase tracking-[0.2em] text-zinc-500 z-50 pb-[calc(env(safe-area-inset-bottom)+1rem)]" onClick={(e) => e.stopPropagation()}>
+      <footer className="fixed bottom-0 inset-x-0 px-6 py-4 bg-obsidian-900/95 backdrop-blur-xl border-t border-white/5 flex items-center justify-between text-[9px] font-black uppercase tracking-[0.2em] text-obsidian-500 z-50 pb-[calc(env(safe-area-inset-bottom)+1rem)]" onClick={(e) => e.stopPropagation()}>
          <div className="flex items-center gap-2 opacity-60">
             <span>{(file.size / (1024*1024)).toFixed(2)} MB</span>
             <span className="opacity-30">•</span>
             <span>PDF Document</span>
          </div>
-         <div className="text-zinc-400 font-bold tracking-[0.1em]">
+         <div className="text-obsidian-500 font-bold tracking-[0.1em]">
             {currentPage} / {totalPages}
          </div>
       </footer>

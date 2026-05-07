@@ -223,7 +223,7 @@ export default function SignatureTool() {
     <button
       onClick={saveSignedPdf}
       disabled={isProcessing || !signatureImg}
-      className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-3 shadow-xl shadow-rose-500/20 ${isNative ? 'py-4 rounded-2xl text-sm' : 'p-6 rounded-3xl text-xl'}`}
+      className={`w-full bg-ember-500 hover:bg-ember-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-3 shadow-xl shadow-ember-500/20 ${isNative ? 'py-4 rounded-2xl text-sm' : 'p-6 rounded-3xl text-xl'}`}
     >
       {isProcessing ? <Loader2 className="animate-spin" /> : <>توقيع وحفظ <ArrowRight size={18} /></>}
     </button>
@@ -246,16 +246,16 @@ export default function SignatureTool() {
       {!pdfData ? (
         <button
           onClick={() => !isProcessing && fileInputRef.current?.click()}
-          className="w-full border-4 border-dashed border-gray-100 dark:border-zinc-900 rounded-[2.5rem] p-12 text-center hover:bg-rose-50 transition-all cursor-pointer group"
+          className="w-full border-4 border-dashed border-obsidian-200 dark:border-obsidian-900 rounded-[2.5rem] p-12 text-center hover:bg-ember-50 transition-all cursor-pointer group"
         >
-          <ImageIcon size={32} className="mx-auto mb-4 text-rose-500" />
+          <ImageIcon size={32} className="mx-auto mb-4 text-ember-500" />
           <h3 className="text-xl font-bold dark:text-white">اختر ملف PDF</h3>
         </button>
       ) : pdfData.isLocked ? (
-        <div className="max-w-md mx-auto p-8 bg-white dark:bg-zinc-900 rounded-3xl text-center">
-          <Lock size={32} className="mx-auto mb-4 text-rose-500" />
+        <div className="max-w-md mx-auto p-8 bg-obsidian-50 dark:bg-obsidian-900 rounded-3xl text-center">
+          <Lock size={32} className="mx-auto mb-4 text-ember-500" />
           <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="كلمة المرور" className="w-full p-4 mb-4 border rounded-xl text-right" dir="rtl" />
-          <button onClick={handleUnlock} className="w-full p-4 bg-rose-500 text-white rounded-xl font-black">فتح القفل</button>
+          <button onClick={handleUnlock} className="w-full p-4 bg-ember-500 text-white rounded-xl font-black">فتح القفل</button>
         </div>
       ) : (
         <div className="space-y-6" onMouseMove={handleMouseMove} onTouchMove={handleMouseMove} onMouseUp={() => { setIsDraggingSig(false); setIsResizing(false) }} onTouchEnd={() => { setIsDraggingSig(false); setIsResizing(false) }}>
@@ -263,7 +263,7 @@ export default function SignatureTool() {
             <>
               {/* Preview */}
               <div
-                className="bg-white dark:bg-zinc-900 p-4 rounded-3xl border border-gray-100 dark:border-white/5 relative aspect-[1/1.4] overflow-hidden touch-none"
+                className="bg-obsidian-50 dark:bg-obsidian-900 p-4 rounded-3xl border border-obsidian-200 dark:border-white/5 relative aspect-[1/1.4] overflow-hidden touch-none"
                 ref={previewRef}
                 onClick={(e) => {
                   if (!signatureImg || isDraggingSig || isResizing) return
@@ -273,39 +273,39 @@ export default function SignatureTool() {
               >
                 {thumbnail
                   ? <img src={thumbnail} className="w-full h-full object-contain" />
-                  : <div className="w-full h-full flex items-center justify-center"><Loader2 className="animate-spin text-rose-500" /></div>
+                  : <div className="w-full h-full flex items-center justify-center"><Loader2 className="animate-spin text-ember-500" /></div>
                 }
                 {signatureImg && (
                   <div
                     onMouseDown={(e) => { e.stopPropagation(); setIsDraggingSig(true) }}
                     onTouchStart={(e) => { e.stopPropagation(); setIsDraggingSig(true) }}
                     style={{ left: `${pos.x}%`, top: `${pos.y}%`, width: `${size}px`, transform: 'translate(-50%, -50%)' }}
-                    className="absolute cursor-move ring-2 ring-rose-500 rounded-sm"
+                    className="absolute cursor-move ring-2 ring-ember-500 rounded-sm"
                   >
                     <img src={signatureImg} className="w-full pointer-events-none" />
                     <div
                       onMouseDown={(e) => { e.stopPropagation(); setIsResizing(true) }}
                       onTouchStart={(e) => { e.stopPropagation(); setIsResizing(true) }}
-                      className="absolute -bottom-2 -right-2 w-6 h-6 bg-rose-500 rounded-full border-2 border-white cursor-nwse-resize"
+                      className="absolute -bottom-2 -right-2 w-6 h-6 bg-ember-500 rounded-full border-2 border-white cursor-nwse-resize"
                     />
                   </div>
                 )}
                 {!signatureImg && (
                   <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <p className="text-[10px] text-gray-400 font-bold bg-white/80 dark:bg-black/80 px-3 py-1 rounded-full">أنشئ توقيعك ثم اضغط لتحديد موضعه</p>
+                    <p className="text-[10px] text-obsidian-500 font-bold bg-obsidian-50/80 dark:bg-obsidian-950/80 px-3 py-1 rounded-full">أنشئ توقيعك ثم اضغط لتحديد موضعه</p>
                   </div>
                 )}
               </div>
 
               {/* Signature Creation Panel */}
-              <div className="bg-white dark:bg-zinc-900 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden">
+              <div className="bg-obsidian-50 dark:bg-obsidian-900 rounded-[2rem] border border-obsidian-200 dark:border-white/5 shadow-sm overflow-hidden">
                 {/* Tabs */}
-                <div className="flex border-b border-gray-100 dark:border-white/5" dir="rtl">
+                <div className="flex border-b border-obsidian-200 dark:border-white/5" dir="rtl">
                   {tabs.map(tab => (
                     <button
                       key={tab.id}
                       onClick={() => { setMode(tab.id); setSignatureImg(null) }}
-                      className={`flex-1 py-3 flex items-center justify-center gap-2 text-xs font-black transition-all ${mode === tab.id ? 'text-rose-500 border-b-2 border-rose-500' : 'text-gray-400'}`}
+                      className={`flex-1 py-3 flex items-center justify-center gap-2 text-xs font-black transition-all ${mode === tab.id ? 'text-ember-500 border-b-2 border-ember-500' : 'text-obsidian-500'}`}
                     >
                       <tab.icon size={14} /> {tab.label}
                     </button>
@@ -326,21 +326,21 @@ export default function SignatureTool() {
                         onTouchStart={startDrawing}
                         onTouchMove={draw}
                         onTouchEnd={stopDrawing}
-                        className="w-full h-32 border-2 border-dashed border-gray-200 dark:border-zinc-700 rounded-xl bg-white dark:bg-zinc-800 cursor-crosshair touch-none"
+                        className="w-full h-32 border-2 border-dashed border-obsidian-200 dark:border-obsidian-700 rounded-xl bg-obsidian-50 dark:bg-obsidian-800 cursor-crosshair touch-none"
                         style={{ touchAction: 'none' }}
                       />
-                      <p className="text-[10px] text-gray-400 text-center font-medium">ارسم توقيعك هنا بإصبعك أو بالفأرة</p>
+                      <p className="text-[10px] text-obsidian-500 text-center font-medium">ارسم توقيعك هنا بإصبعك أو بالفأرة</p>
                       <div className="flex gap-3">
                         <button
                           onClick={confirmDrawing}
                           disabled={!hasDrawing}
-                          className="flex-1 py-3 bg-rose-500 text-white rounded-xl text-xs font-black disabled:opacity-40"
+                          className="flex-1 py-3 bg-ember-500 text-white rounded-xl text-xs font-black disabled:opacity-40"
                         >
                           تأكيد التوقيع
                         </button>
                         <button
                           onClick={clearCanvas}
-                          className="py-3 px-4 bg-gray-100 dark:bg-zinc-800 text-gray-500 rounded-xl"
+                          className="py-3 px-4 bg-obsidian-100 dark:bg-obsidian-800 text-obsidian-500 rounded-xl"
                         >
                           <Trash2 size={16} />
                         </button>
@@ -355,12 +355,12 @@ export default function SignatureTool() {
                         value={typeText}
                         onChange={(e) => setTypeText(e.target.value)}
                         placeholder="اكتب اسمك أو توقيعك"
-                        className="w-full bg-gray-50 dark:bg-zinc-800 rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white text-right"
+                        className="w-full bg-obsidian-100 dark:bg-obsidian-800 rounded-xl px-4 py-3 border border-transparent focus:border-ember-500 outline-none font-bold text-sm dark:text-white text-right"
                         dir="rtl"
                       />
                       {typeText && (
                         <div
-                          className="w-full h-20 flex items-center justify-center rounded-xl bg-white dark:bg-zinc-800 border border-gray-100 dark:border-zinc-700"
+                          className="w-full h-20 flex items-center justify-center rounded-xl bg-obsidian-50 dark:bg-obsidian-800 border border-obsidian-200 dark:border-obsidian-700"
                           style={{ fontFamily: selectedFont, fontSize: '2rem', color: '#1a1a2e' }}
                         >
                           {typeText}
@@ -371,7 +371,7 @@ export default function SignatureTool() {
                           <button
                             key={font.value}
                             onClick={() => setSelectedFont(font.value)}
-                            className={`py-2 px-3 rounded-xl text-xs border transition-all ${selectedFont === font.value ? 'border-rose-500 bg-rose-50 dark:bg-rose-900/20 text-rose-500' : 'border-gray-100 dark:border-zinc-700 text-gray-500'}`}
+                            className={`py-2 px-3 rounded-xl text-xs border transition-all ${selectedFont === font.value ? 'border-ember-500 bg-ember-50 dark:bg-ember-900/20 text-ember-500' : 'border-obsidian-200 dark:border-obsidian-700 text-obsidian-500'}`}
                             style={{ fontFamily: font.value }}
                           >
                             {font.label}
@@ -381,7 +381,7 @@ export default function SignatureTool() {
                       <button
                         onClick={confirmText}
                         disabled={!typeText.trim()}
-                        className="w-full py-3 bg-rose-500 text-white rounded-xl text-xs font-black disabled:opacity-40"
+                        className="w-full py-3 bg-ember-500 text-white rounded-xl text-xs font-black disabled:opacity-40"
                       >
                         تأكيد التوقيع
                       </button>
@@ -392,11 +392,11 @@ export default function SignatureTool() {
                     <div className="space-y-3">
                       <button
                         onClick={() => signatureInputRef.current?.click()}
-                        className="w-full p-4 border-2 border-dashed border-gray-200 dark:border-zinc-700 rounded-xl text-gray-500 flex items-center justify-center gap-2 hover:border-rose-500 hover:text-rose-500 transition-all"
+                        className="w-full p-4 border-2 border-dashed border-obsidian-200 dark:border-obsidian-700 rounded-xl text-obsidian-500 flex items-center justify-center gap-2 hover:border-ember-500 hover:text-ember-500 transition-all"
                       >
                         <ImageIcon size={16} /> رفع صورة التوقيع
                       </button>
-                      <p className="text-[10px] text-gray-400 text-center">يدعم PNG وJPG — خلفية شفافة للأفضل</p>
+                      <p className="text-[10px] text-obsidian-500 text-center">يدعم PNG وJPG — خلفية شفافة للأفضل</p>
                     </div>
                   )}
 
@@ -410,13 +410,13 @@ export default function SignatureTool() {
               </div>
 
               {/* Output filename */}
-              <div className="bg-white dark:bg-zinc-900 p-6 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm" dir="rtl">
-                <label className="block text-[10px] font-black uppercase tracking-widest text-gray-400 mb-3 px-1">اسم الملف الناتج</label>
+              <div className="bg-obsidian-50 dark:bg-obsidian-900 p-6 rounded-[2rem] border border-obsidian-200 dark:border-white/5 shadow-sm" dir="rtl">
+                <label className="block text-[10px] font-black uppercase tracking-widest text-obsidian-500 mb-3 px-1">اسم الملف الناتج</label>
                 <input
                   type="text"
                   value={customFileName}
                   onChange={(e) => setCustomFileName(e.target.value)}
-                  className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white text-right"
+                  className="w-full bg-obsidian-100 dark:bg-obsidian-950 rounded-xl px-4 py-3 border border-transparent focus:border-ember-500 outline-none font-bold text-sm dark:text-white text-right"
                   dir="ltr"
                 />
               </div>
@@ -424,7 +424,7 @@ export default function SignatureTool() {
           ) : (
             <SuccessState message="تم التوقيع بنجاح!" downloadUrl={downloadUrl} fileName={`${customFileName}.pdf`} onStartOver={() => { setDownloadUrl(null); setPdfData(null); setSignatureImg(null); setHasDrawing(false) }} />
           )}
-          <button onClick={() => { setPdfData(null); setSignatureImg(null); setHasDrawing(false) }} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">إغلاق الملف</button>
+          <button onClick={() => { setPdfData(null); setSignatureImg(null); setHasDrawing(false) }} className="w-full py-2 text-[10px] font-black uppercase text-obsidian-400 hover:text-ember-500 transition-colors">إغلاق الملف</button>
         </div>
       )}
       <PrivacyBadge />

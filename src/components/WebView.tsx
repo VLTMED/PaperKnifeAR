@@ -14,11 +14,11 @@ import { Tool, ToolCategory } from '../types'
 
 const categoryColors: Record<ToolCategory, { bg: string, text: string, border: string, hover: string, glow: string }> = {
   Edit: { 
-    bg: 'bg-rose-50 dark:bg-rose-900/20', 
-    text: 'text-rose-500', 
-    border: 'border-rose-100 dark:border-rose-900/30',
-    hover: 'group-hover:bg-rose-500',
-    glow: 'dark:hover:shadow-rose-900/20'
+    bg: 'bg-ember-50 dark:bg-ember-900/20', 
+    text: 'text-ember-500', 
+    border: 'border-ember-100 dark:border-ember-900/30',
+    hover: 'group-hover:bg-ember-500',
+    glow: 'dark:hover:shadow-ember-900/20'
   },
   Secure: { 
     bg: 'bg-indigo-50 dark:bg-indigo-900/20', 
@@ -49,15 +49,15 @@ const ToolCard = ({ title, desc, icon: Icon, onClick, category }: Tool & { onCli
   return (
     <button 
       onClick={onClick}
-      className="group relative flex flex-col p-6 rounded-[2rem] bg-white dark:bg-zinc-900/40 border border-gray-100 dark:border-white/5 hover:border-rose-500/50 dark:hover:border-rose-500/50 transition-all duration-300 text-left hover:shadow-2xl hover:shadow-rose-500/5 hover:-translate-y-1"
+      className="group relative flex flex-col p-6 rounded-[2rem] bg-obsidian-50 dark:bg-obsidian-900/40 border border-obsidian-200 dark:border-white/5 hover:border-ember-500/50 dark:hover:border-ember-500/50 transition-all duration-300 text-left hover:shadow-2xl hover:shadow-ember-500/5 hover:-translate-y-1"
     >
-      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${colors.bg} ${colors.text} group-hover:bg-rose-500 group-hover:text-white transition-all duration-500`}>
+      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 ${colors.bg} ${colors.text} group-hover:bg-ember-500 group-hover:text-white transition-all duration-500`}>
         <Icon size={24} strokeWidth={2} />
       </div>
-      <h3 className="font-black text-gray-900 dark:text-white mb-2 text-lg tracking-tight group-hover:text-rose-500 transition-colors">{title}</h3>
-      <p className="text-sm text-gray-500 dark:text-zinc-400 font-medium leading-relaxed line-clamp-2">{desc}</p>
+      <h3 className="font-black text-obsidian-950 dark:text-white mb-2 text-lg tracking-tight group-hover:text-ember-500 transition-colors">{title}</h3>
+      <p className="text-sm text-obsidian-500 dark:text-obsidian-500 font-medium leading-relaxed line-clamp-2">{desc}</p>
       
-      <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity text-rose-500">
+      <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity text-ember-500">
         <ChevronRightIcon size={20} />
       </div>
     </button>
@@ -81,22 +81,22 @@ export default function WebView({ tools }: { tools: Tool[] }) {
   }, [tools, searchQuery, activeCategory])
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-black transition-colors duration-500">
+    <div className="min-h-screen bg-[#FAFAFA] dark:bg-obsidian-950 transition-colors duration-500">
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 px-6 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(244,63,94,0.05),transparent_70%)] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(212,137,26,0.05),transparent_70%)] pointer-events-none" />
         
         <div className="max-w-6xl mx-auto text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-rose-100 dark:border-rose-900/30">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-ember-50 dark:bg-ember-900/20 text-ember-500 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-8 border border-ember-100 dark:border-ember-900/30">
             <SparklesIcon size={14} /> Professional PDF Engine
           </div>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter dark:text-white mb-8 leading-[0.9]">
             Stop Uploading <br/>
-            <span className="text-rose-500">Your Privacy.</span>
+            <span className="text-ember-500">Your Privacy.</span>
           </h1>
           
           <div className="max-w-2xl mx-auto relative group mt-12">
-            <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none text-gray-400 group-focus-within:text-rose-500 transition-colors">
+            <div className="absolute inset-y-0 left-6 flex items-center pointer-events-none text-obsidian-500 group-focus-within:text-ember-500 transition-colors">
               <SearchIcon size={22} />
             </div>
             <input 
@@ -104,7 +104,7 @@ export default function WebView({ tools }: { tools: Tool[] }) {
               placeholder="Search tools (e.g. merge, compress, protect...)"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white dark:bg-zinc-900 border border-gray-100 dark:border-white/5 rounded-[2rem] py-6 pl-16 pr-8 shadow-2xl shadow-gray-200/50 dark:shadow-none focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10 outline-none transition-all font-bold text-xl dark:text-white"
+              className="w-full bg-obsidian-50 dark:bg-obsidian-900 border border-obsidian-200 dark:border-white/5 rounded-[2rem] py-6 pl-16 pr-8 shadow-2xl shadow-obsidian-200/50 dark:shadow-none focus:border-ember-500 focus:ring-4 focus:ring-ember-500/10 outline-none transition-all font-bold text-xl dark:text-white"
             />
           </div>
         </div>
@@ -122,13 +122,13 @@ export default function WebView({ tools }: { tools: Tool[] }) {
                   <button
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
-                    className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all border ${activeCategory === cat ? 'bg-zinc-900 dark:bg-white text-white dark:text-black border-transparent shadow-lg' : 'bg-white dark:bg-zinc-900 text-gray-400 border-gray-100 dark:border-white/5 hover:border-rose-500'}`}
+                    className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all border ${activeCategory === cat ? 'bg-obsidian-900 dark:bg-obsidian-50 text-white dark:text-obsidian-950 border-transparent shadow-lg' : 'bg-obsidian-50 dark:bg-obsidian-900 text-obsidian-500 border-obsidian-200 dark:border-white/5 hover:border-ember-500'}`}
                   >
                     {cat}
                   </button>
                 ))}
               </div>
-              <p className="hidden md:block text-[10px] font-black text-gray-400 uppercase tracking-widest">{filteredTools.length} Modules Active</p>
+              <p className="hidden md:block text-[10px] font-black text-obsidian-500 uppercase tracking-widest">{filteredTools.length} Modules Active</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -143,12 +143,12 @@ export default function WebView({ tools }: { tools: Tool[] }) {
 
             {filteredTools.length === 0 && (
               <div className="py-32 text-center">
-                <div className="w-20 h-20 bg-gray-100 dark:bg-zinc-900 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-300">
+                <div className="w-20 h-20 bg-obsidian-100 dark:bg-obsidian-900 rounded-full flex items-center justify-center mx-auto mb-6 text-obsidian-400">
                   <SearchIcon size={32} />
                 </div>
                 <h3 className="text-2xl font-black dark:text-white mb-2">No tools matched.</h3>
-                <p className="text-gray-500 dark:text-zinc-400 font-medium">Try searching for a different keyword or clear your filters.</p>
-                <button onClick={() => { setSearchQuery(''); setActiveCategory('All'); }} className="mt-8 text-rose-500 font-black uppercase tracking-widest text-xs hover:underline underline-offset-8">Reset Dashboard</button>
+                <p className="text-obsidian-500 dark:text-obsidian-500 font-medium">Try searching for a different keyword or clear your filters.</p>
+                <button onClick={() => { setSearchQuery(''); setActiveCategory('All'); }} className="mt-8 text-ember-500 font-black uppercase tracking-widest text-xs hover:underline underline-offset-8">Reset Dashboard</button>
               </div>
             )}
           </div>

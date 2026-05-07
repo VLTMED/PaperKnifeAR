@@ -22,8 +22,8 @@ const LazyThumbnail = ({ pdfDoc, pageNum, rotation }: { pdfDoc: any, pageNum: nu
     if (imgRef.current) observer.observe(imgRef.current)
     return () => observer.disconnect()
   }, [pdfDoc, pageNum, src])
-  if (src) return <img src={src} className="w-full h-full object-contain transition-transform duration-300 bg-white" style={{ transform: `rotate(${rotation}deg)` }} alt={`P${pageNum}`} />
-  return <div ref={imgRef} className="w-full h-full bg-gray-100 dark:bg-zinc-800 flex items-center justify-center"><div className="w-4 h-4 border-2 border-gray-300 border-t-transparent rounded-full animate-spin" /></div>
+  if (src) return <img src={src} className="w-full h-full object-contain transition-transform duration-300 bg-obsidian-50" style={{ transform: `rotate(${rotation}deg)` }} alt={`P${pageNum}`} />
+  return <div ref={imgRef} className="w-full h-full bg-obsidian-100 dark:bg-obsidian-800 flex items-center justify-center"><div className="w-4 h-4 border-2 border-obsidian-300 border-t-transparent rounded-full animate-spin" /></div>
 }
 
 export default function RotateTool() {
@@ -93,7 +93,7 @@ export default function RotateTool() {
   }
 
   const ActionButton = () => (
-    <button onClick={savePDF} disabled={isProcessing} className={`w-full bg-rose-500 hover:bg-rose-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-3 shadow-lg shadow-rose-500/20 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl`}>
+    <button onClick={savePDF} disabled={isProcessing} className={`w-full bg-ember-500 hover:bg-ember-600 text-white font-black uppercase tracking-widest transition-all active:scale-95 disabled:opacity-50 flex items-center justify-center gap-3 shadow-lg shadow-ember-500/20 py-4 rounded-2xl text-sm md:p-6 md:rounded-3xl md:text-xl`}>
       {isProcessing ? <Loader2 className="animate-spin" /> : <RotateCw size={20} />} حفظ الملف المدوَّر
     </button>
   )
@@ -103,76 +103,76 @@ export default function RotateTool() {
       <input type="file" accept=".pdf" className="hidden" ref={fileInputRef} onChange={(e) => e.target.files?.[0] && handleFile(e.target.files[0])} />
       
       {!pdfData ? (
-        <div onClick={() => !isProcessing && fileInputRef.current?.click()} className="border-4 border-dashed border-gray-100 dark:border-zinc-900 rounded-[2.5rem] p-12 text-center hover:bg-rose-50 dark:hover:bg-rose-900/10 transition-all cursor-pointer group">
-          <div className="w-20 h-20 bg-rose-50 dark:bg-rose-900/20 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"><RotateCw size={32} /></div>
+        <div onClick={() => !isProcessing && fileInputRef.current?.click()} className="border-4 border-dashed border-obsidian-200 dark:border-obsidian-900 rounded-[2.5rem] p-12 text-center hover:bg-ember-50 dark:hover:bg-ember-900/10 transition-all cursor-pointer group">
+          <div className="w-20 h-20 bg-ember-50 dark:bg-ember-900/20 text-ember-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform"><RotateCw size={32} /></div>
           <h3 className="text-xl font-bold dark:text-white mb-2">اختر ملف PDF</h3>
-          <p className="text-sm text-gray-400">اضغط للبدء</p>
+          <p className="text-sm text-obsidian-500">اضغط للبدء</p>
         </div>
       ) : pdfData.isLocked ? (
         <div className="max-w-md mx-auto relative z-[100]">
-          <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-white/5 text-center shadow-2xl">
-            <div className="w-16 h-16 bg-rose-100 dark:bg-rose-900/30 text-rose-500 rounded-full flex items-center justify-center mx-auto mb-6"><Lock size={32} /></div>
+          <div className="bg-obsidian-50 dark:bg-obsidian-900 p-8 rounded-[2.5rem] border border-obsidian-200 dark:border-white/5 text-center shadow-2xl">
+            <div className="w-16 h-16 bg-ember-100 dark:bg-ember-900/30 text-ember-500 rounded-full flex items-center justify-center mx-auto mb-6"><Lock size={32} /></div>
             <h3 className="text-2xl font-bold mb-2 dark:text-white">ملف محمي</h3>
-            <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="كلمة المرور" className="w-full bg-gray-50 dark:bg-black rounded-2xl px-6 py-4 border border-transparent focus:border-rose-500 outline-none font-bold text-center mb-4 dark:text-white" />
-            <button onClick={handleUnlock} disabled={!unlockPassword || isProcessing} className="w-full bg-rose-500 text-white p-4 rounded-2xl font-black uppercase text-xs">فتح</button>
+            <input type="password" value={unlockPassword} onChange={(e) => setUnlockPassword(e.target.value)} placeholder="كلمة المرور" className="w-full bg-obsidian-100 dark:bg-obsidian-950 rounded-2xl px-6 py-4 border border-transparent focus:border-ember-500 outline-none font-bold text-center mb-4 dark:text-white" />
+            <button onClick={handleUnlock} disabled={!unlockPassword || isProcessing} className="w-full bg-ember-500 text-white p-4 rounded-2xl font-black uppercase text-xs">فتح</button>
           </div>
         </div>
       ) : (
         <div className="space-y-6 animate-in fade-in duration-500">
-          <div className="bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-gray-100 dark:border-white/5 flex items-center gap-6 shadow-sm">
-            <div className="w-12 h-16 bg-gray-50 dark:bg-black rounded-xl overflow-hidden shrink-0 border border-gray-100 dark:border-zinc-800 flex items-center justify-center text-rose-500 shadow-inner">{pdfData.thumbnail ? <img src={pdfData.thumbnail} className="w-full h-full object-cover" /> : <RotateCw size={24} />}</div>
+          <div className="bg-obsidian-50 dark:bg-obsidian-900 p-6 rounded-3xl border border-obsidian-200 dark:border-white/5 flex items-center gap-6 shadow-sm">
+            <div className="w-12 h-16 bg-obsidian-100 dark:bg-obsidian-950 rounded-xl overflow-hidden shrink-0 border border-obsidian-200 dark:border-obsidian-800 flex items-center justify-center text-ember-500 shadow-inner">{pdfData.thumbnail ? <img src={pdfData.thumbnail} className="w-full h-full object-cover" /> : <RotateCw size={24} />}</div>
             <div className="flex-1 min-w-0 text-left">
               <h3 className="font-bold text-sm truncate dark:text-white">{pdfData.file.name}</h3>
-              <p className="text-[10px] text-gray-400 uppercase font-black tracking-widest">{pdfData.pageCount} Pages • {(pdfData.file.size / (1024*1024)).toFixed(1)} MB</p>
+              <p className="text-[10px] text-obsidian-500 uppercase font-black tracking-widest">{pdfData.pageCount} Pages • {(pdfData.file.size / (1024*1024)).toFixed(1)} MB</p>
             </div>
-            <button onClick={() => setPdfData(null)} className="p-2 text-gray-400 hover:text-rose-500 transition-colors"><X size={20} /></button>
+            <button onClick={() => setPdfData(null)} className="p-2 text-obsidian-500 hover:text-ember-500 transition-colors"><X size={20} /></button>
           </div>
 
-          <div className="bg-rose-500/5 dark:bg-rose-500/10 border border-rose-500/20 rounded-2xl p-4 flex items-center gap-4 animate-pulse">
-            <div className="w-10 h-10 bg-rose-500 text-white rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-rose-500/20">
+          <div className="bg-ember-500/5 dark:bg-ember-500/10 border border-ember-500/20 rounded-2xl p-4 flex items-center gap-4 animate-pulse">
+            <div className="w-10 h-10 bg-ember-500 text-white rounded-full flex items-center justify-center shrink-0 shadow-lg shadow-ember-500/20">
               <RotateCw size={20} />
             </div>
             <div className="flex-1">
-              <h4 className="text-sm font-black text-rose-500 uppercase tracking-tight leading-none mb-1">محرر بصري</h4>
-              <p className="text-xs text-rose-500/70 font-bold">اضغط على أي صفحة أدناه لتدويرها 90° في اتجاه عقارب الساعة.</p>
+              <h4 className="text-sm font-black text-ember-500 uppercase tracking-tight leading-none mb-1">محرر بصري</h4>
+              <p className="text-xs text-ember-500/70 font-bold">اضغط على أي صفحة أدناه لتدويرها 90° في اتجاه عقارب الساعة.</p>
             </div>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 p-6 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm">
+          <div className="bg-obsidian-50 dark:bg-obsidian-900 p-6 rounded-[2rem] border border-obsidian-200 dark:border-white/5 shadow-sm">
             <div className="flex justify-between items-center mb-6">
-              <h4 className="font-black uppercase tracking-widest text-[10px] text-gray-400">معاينة الصفحات</h4>
+              <h4 className="font-black uppercase tracking-widest text-[10px] text-obsidian-500">معاينة الصفحات</h4>
               <div className="flex gap-2">
-                <button onClick={rotateAll} className="text-[10px] font-black uppercase text-rose-500 flex items-center gap-1 font-bold"><RotateCw size={12}/> الكل</button>
-                <button onClick={() => setRotations({})} className="text-[10px] font-black uppercase text-gray-400 flex items-center gap-1 font-bold"><RefreshCcw size={12}/> إعادة ضبط</button>
+                <button onClick={rotateAll} className="text-[10px] font-black uppercase text-ember-500 flex items-center gap-1 font-bold"><RotateCw size={12}/> الكل</button>
+                <button onClick={() => setRotations({})} className="text-[10px] font-black uppercase text-obsidian-500 flex items-center gap-1 font-bold"><RefreshCcw size={12}/> إعادة ضبط</button>
               </div>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-h-[60vh] overflow-y-auto p-1 scrollbar-hide">
               {Array.from({ length: pdfData.pageCount }).map((_, i) => {
                 const pageNum = i + 1; const rotation = rotations[pageNum] || 0
                 return (
-                  <div key={pageNum} onClick={() => rotatePage(pageNum)} className="relative group cursor-pointer aspect-[3/4] rounded-xl overflow-hidden border-2 border-transparent hover:border-rose-500 transition-all bg-gray-50 dark:bg-black shadow-sm">
+                  <div key={pageNum} onClick={() => rotatePage(pageNum)} className="relative group cursor-pointer aspect-[3/4] rounded-xl overflow-hidden border-2 border-transparent hover:border-ember-500 transition-all bg-obsidian-100 dark:bg-obsidian-950 shadow-sm">
                     <div className="w-full h-full p-2"><LazyThumbnail pdfDoc={pdfData.pdfDoc} pageNum={pageNum} rotation={rotation} /></div>
-                    <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/5 transition-colors">
-                      <div className="bg-white dark:bg-zinc-800 text-rose-500 p-2 rounded-full opacity-0 group-hover:opacity-100 shadow-xl scale-75 group-hover:scale-100 transition-all border border-gray-100 dark:border-white/5">
+                    <div className="absolute inset-0 flex items-center justify-center bg-obsidian-950/0 group-hover:bg-obsidian-950/5 transition-colors">
+                      <div className="bg-obsidian-50 dark:bg-obsidian-800 text-ember-500 p-2 rounded-full opacity-0 group-hover:opacity-100 shadow-xl scale-75 group-hover:scale-100 transition-all border border-obsidian-200 dark:border-white/5">
                         <RotateCw size={20} />
                       </div>
                     </div>
-                    <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/50 backdrop-blur-md rounded text-[9px] font-black text-white">ص {pageNum}</div>
+                    <div className="absolute bottom-2 left-2 px-2 py-1 bg-obsidian-950/50 backdrop-blur-md rounded text-[9px] font-black text-white">ص {pageNum}</div>
                   </div>
                 )
               })}
             </div>
           </div>
 
-          <div className="bg-white dark:bg-zinc-900 p-8 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm space-y-6">
+          <div className="bg-obsidian-50 dark:bg-obsidian-900 p-8 rounded-[2rem] border border-obsidian-200 dark:border-white/5 shadow-sm space-y-6">
             {!downloadUrl ? (
               <div className="space-y-6">
-                <div><label className="block text-[10px] font-black uppercase text-gray-400 mb-3">اسم الملف</label><input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-gray-50 dark:bg-black rounded-xl px-4 py-3 border border-transparent focus:border-rose-500 outline-none font-bold text-sm dark:text-white" /></div>
+                <div><label className="block text-[10px] font-black uppercase text-obsidian-500 mb-3">اسم الملف</label><input type="text" value={customFileName} onChange={(e) => setCustomFileName(e.target.value)} className="w-full bg-obsidian-100 dark:bg-obsidian-950 rounded-xl px-4 py-3 border border-transparent focus:border-ember-500 outline-none font-bold text-sm dark:text-white" /></div>
               </div>
             ) : (
               <SuccessState message="تم التدوير بنجاح!" downloadUrl={downloadUrl} fileName={`${customFileName}.pdf`} onStartOver={() => { setDownloadUrl(null); setPdfData(null); }} />
             )}
-            <button onClick={() => setPdfData(null)} className="w-full py-2 text-[10px] font-black uppercase text-gray-300 hover:text-rose-500 transition-colors">إغلاق الملف</button>
+            <button onClick={() => setPdfData(null)} className="w-full py-2 text-[10px] font-black uppercase text-obsidian-400 hover:text-ember-500 transition-colors">إغلاق الملف</button>
           </div>
         </div>
       )}
