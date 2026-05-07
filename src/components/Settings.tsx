@@ -229,11 +229,11 @@ export default function Settings({ theme, setTheme }: { theme: Theme, setTheme: 
             icon={Bug} 
             title="الإبلاغ عن مشكلة" 
             subtitle="متتبع GitHub"
-            onClick={() => window.open('https://github.com/VLTMED/PaperKnifeAR/issues', '_blank')}
+            onClick={() => window.open('https://github.com/potatameister/PaperKnife/issues', '_blank')}
           />
           <SettingItem 
             icon={Info} 
-            title="حول PaperKnifeAR" 
+            title="حول PaperKnife" 
             subtitle="تفاصيل البروتوكول"
             onClick={() => navigate('/about')}
           />

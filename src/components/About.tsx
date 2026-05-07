@@ -67,7 +67,7 @@ const AboutWeb = () => {
             <span className="text-rose-500 font-black">Human Right.</span>
           </h1>
           <p className="text-lg md:text-xl text-gray-500 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed font-medium animate-in fade-in slide-in-from-bottom-8 duration-700 delay-100">
-            PaperKnifeAR is an absolute document engine. No servers, no tracking, no compromises. We transform your browser into a self-contained document laboratory.
+            PaperKnife is an absolute document engine. No servers, no tracking, no compromises. We transform your browser into a self-contained document laboratory.
           </p>
         </div>
       </section>
@@ -82,7 +82,7 @@ const AboutWeb = () => {
            <div className="flex-1 text-center md:text-left relative z-10">
               <h3 className="text-3xl font-black tracking-tighter mb-3 leading-tight">Fuel the Engine.</h3>
               <p className="text-rose-100 font-medium text-base mb-6 max-w-xl leading-relaxed">
-                 PaperKnifeAR is self-funded and ad-free. Your support ensures the project stays alive and free for everyone.
+                 PaperKnife is self-funded and ad-free. Your support ensures the project stays alive and free for everyone.
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
                  <a href="https://github.com/sponsors/potatameister" target="_blank" className="px-8 py-3.5 bg-white text-rose-600 rounded-2xl font-black uppercase tracking-widest text-[10px] hover:scale-105 transition-transform shadow-lg flex items-center gap-2">
@@ -110,14 +110,14 @@ const AboutWeb = () => {
               <span className="text-rose-500">Absolute Sovereignty.</span>
             </h2>
             <p className="text-gray-500 dark:text-zinc-400 text-sm font-medium leading-relaxed">
-              PaperKnifeAR rejects the trade-off between convenience and privacy. We've built an engine that runs where the user is, ensuring your sensitive data never crosses a network boundary.
+              PaperKnife rejects the trade-off between convenience and privacy. We've built an engine that runs where the user is, ensuring your sensitive data never crosses a network boundary.
             </p>
             <div className="p-6 bg-white dark:bg-zinc-900 rounded-[2rem] border border-gray-100 dark:border-white/5 shadow-sm">
                <h4 className="font-black text-[10px] uppercase tracking-widest text-emerald-500 mb-3 flex items-center gap-2">
                   <ServerOffIcon size={14} /> Zero Infrastructure
                </h4>
                <p className="text-xs text-gray-500 dark:text-zinc-400 font-medium leading-relaxed">
-                  We operate no backend. No databases. No file caches. PaperKnifeAR is a static distribution of code that activates your browser's existing power.
+                  We operate no backend. No databases. No file caches. PaperKnife is a static distribution of code that activates your browser's existing power.
                </p>
             </div>
           </div>
@@ -125,7 +125,7 @@ const AboutWeb = () => {
           {/* Accordion Column - Compact */}
           <div className="lg:col-span-7 bg-white dark:bg-zinc-900 rounded-[2.5rem] p-2 md:p-6 border border-gray-100 dark:border-white/5 shadow-sm">
              <SpecItem title="How it Works" icon={CpuIcon} defaultOpen={true}>
-                Every action is executed locally on your device's CPU. Using high-performance <span className="text-rose-500 font-bold">Web Workers</span> and <span className="text-rose-500 font-bold">WebAssembly</span>, PaperKnifeAR loads your PDF into a sandboxed environment within your browser tab.
+                Every action is executed locally on your device's CPU. Using high-performance <span className="text-rose-500 font-bold">Web Workers</span> and <span className="text-rose-500 font-bold">WebAssembly</span>, PaperKnife loads your PDF into a sandboxed environment within your browser tab.
              </SpecItem>
 
              <SpecItem title="Data Lifecycle" icon={PrivacyIcon}>
@@ -137,7 +137,7 @@ const AboutWeb = () => {
              </SpecItem>
 
              <SpecItem title="Radical Transparency" icon={CodeIcon}>
-                PaperKnifeAR is <span className="text-rose-500 font-bold">100% Open Source</span> under the <span className="text-rose-500 font-bold">GNU AGPL v3</span> license. This gives you the right to audit every line of code and guarantees the engine remains free.
+                PaperKnife is <span className="text-rose-500 font-bold">100% Open Source</span> under the <span className="text-rose-500 font-bold">GNU AGPL v3</span> license. This gives you the right to audit every line of code and guarantees the engine remains free.
              </SpecItem>
 
              <SpecItem title="Privacy Nodes" icon={ShieldIcon}>
@@ -151,7 +151,7 @@ const AboutWeb = () => {
       {/* 4. Final Footer Links - Condensed */}
       <section className="max-w-4xl mx-auto px-6 text-center border-t border-gray-100 dark:border-zinc-900 pt-16">
         <div className="flex flex-wrap justify-center gap-8 mb-12">
-           <a href="https://github.com/VLTMED/PaperKnifeAR" target="_blank" className="flex items-center gap-2.5 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-rose-500 transition-colors group">
+           <a href="https://github.com/potatameister/PaperKnife" target="_blank" className="flex items-center gap-2.5 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-rose-500 transition-colors group">
               <GHIcon size={16} /> Audit Source <ExternalLinkIcon size={12} className="opacity-40 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
            </a>
            <button onClick={() => navigate('/thanks')} className="flex items-center gap-2.5 text-[10px] font-black uppercase tracking-widest text-gray-400 hover:text-rose-500 transition-colors group">
@@ -182,7 +182,7 @@ const AboutAPK = () => {
           <div className="w-20 h-20 bg-gray-50 dark:bg-black rounded-[1.5rem] flex items-center justify-center shadow-inner mb-4">
             <PaperKnifeLogo size={40} iconColor="#F43F5E" partColor="currentColor" />
           </div>
-          <h2 className="text-2xl font-black tracking-tighter dark:text-white leading-none mb-1 font-display-ar">PaperKnifeAR</h2>
+          <h2 className="text-2xl font-black tracking-tighter dark:text-white leading-none mb-1 font-display-ar">PaperKnife</h2>
           <p className="text-[9px] font-black uppercase tracking-widest text-rose-500">v1.0.9 مستقر • خصوصية مطلقة</p>
         </div>
 
@@ -199,7 +199,7 @@ const AboutAPK = () => {
                  <h3 className="text-lg font-black uppercase tracking-tight">ادعم المشروع</h3>
               </div>
               <p className="text-sm font-medium text-rose-100 leading-relaxed mb-6">
-                 ممول ذاتياً 100%. دعمك يضمن استمرار PaperKnifeAR مجانياً للجميع.
+                 ممول ذاتياً 100%. دعمك يضمن استمرار PaperKnife مجانياً للجميع.
               </p>
               <div className="grid grid-cols-2 gap-3">
                  <a href="https://github.com/sponsors/potatameister" target="_blank" className="flex items-center justify-center gap-2 py-3 bg-white text-rose-600 rounded-xl font-black uppercase text-[9px] tracking-widest shadow-sm active:scale-95 transition-transform">
@@ -220,7 +220,7 @@ const AboutAPK = () => {
            
            <div className="divide-y divide-gray-50 dark:divide-white/5 px-2">
               <SpecItem title="كيف يعمل" icon={CpuIcon}>
-                كل عملية تتم محلياً على معالج جهازك. يستخدم PaperKnifeAR محركاً داخلياً مدعوماً بـ <span className="text-rose-500 font-bold">pdf-lib</span> و<span className="text-rose-500 font-bold">WebAssembly</span>. لا تغادر بياناتك جهازك أبداً.
+                كل عملية تتم محلياً على معالج جهازك. يستخدم PaperKnife محركاً داخلياً مدعوماً بـ <span className="text-rose-500 font-bold">pdf-lib</span> و<span className="text-rose-500 font-bold">WebAssembly</span>. لا تغادر بياناتك جهازك أبداً.
               </SpecItem>
 
               <SpecItem title="خصوصية البيانات" icon={PrivacyIcon}>
@@ -232,7 +232,7 @@ const AboutAPK = () => {
               </SpecItem>
 
               <SpecItem title="المصدر المفتوح" icon={CodeIcon}>
-                الثقة تُكتسب بالشفافية. PaperKnifeAR مفتوح المصدر <span className="text-rose-500 font-bold">100%</span> بموجب ترخيص <span className="text-rose-500 font-bold">GNU AGPL v3</span>. هذا يضمن بقاءه مجانياً وقابلاً للتدقيق إلى الأبد.
+                الثقة تُكتسب بالشفافية. PaperKnife مفتوح المصدر <span className="text-rose-500 font-bold">100%</span> بموجب ترخيص <span className="text-rose-500 font-bold">GNU AGPL v3</span>. هذا يضمن بقاءه مجانياً وقابلاً للتدقيق إلى الأبد.
               </SpecItem>
 
               <SpecItem title="بنية تحتية صفرية" icon={ServerOffIcon}>
@@ -243,7 +243,7 @@ const AboutAPK = () => {
 
         {/* 4. Action Tiles */}
         <div className="grid grid-cols-1 gap-2 pt-2">
-          <a href="https://github.com/VLTMED/PaperKnifeAR" target="_blank" className="flex items-center justify-between p-5 bg-white dark:bg-zinc-900 border border-gray-100 dark:border-white/5 rounded-[2rem] active:scale-[0.98] transition-all">
+          <a href="https://github.com/potatameister/PaperKnife" target="_blank" className="flex items-center justify-between p-5 bg-white dark:bg-zinc-900 border border-gray-100 dark:border-white/5 rounded-[2rem] active:scale-[0.98] transition-all">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 bg-zinc-100 dark:bg-black rounded-xl flex items-center justify-center">
                    <GHIcon size={20} className="text-black dark:text-white" />

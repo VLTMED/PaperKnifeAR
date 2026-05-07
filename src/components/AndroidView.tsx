@@ -62,7 +62,7 @@ export default function AndroidView({ theme, toggleTheme, onFileSelect }: Androi
              <PaperKnifeLogo size={24} iconColor="#F43F5E" partColor="currentColor" />
              <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                   <span className="text-lg font-black tracking-tighter text-gray-900 dark:text-white leading-none">PaperKnifeAR</span>
+                   <span className="text-lg font-black tracking-tighter text-gray-900 dark:text-white leading-none">PaperKnife</span>
                    <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
                 </div>
                 <span className="text-[7px] font-black text-rose-500 uppercase tracking-[0.2em] mt-0.5">محرك آمن</span>
@@ -189,7 +189,7 @@ export default function AndroidView({ theme, toggleTheme, onFileSelect }: Androi
 
         {/* تذييل الصفحة */}
         <div className="flex flex-col items-center gap-2 py-8 opacity-20">
-           <p className="text-[8px] font-black uppercase tracking-[0.4em] dark:text-white text-center">PaperKnifeAR v1.0.9</p>
+           <p className="text-[8px] font-black uppercase tracking-[0.4em] dark:text-white text-center">PaperKnife v1.0.9</p>
         </div>
 
       </main>
